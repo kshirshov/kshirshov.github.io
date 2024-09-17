@@ -1,9 +1,20 @@
-[quicknotetab.com](https://quicknotetab.com)
+## [quicknotetab.com](https://quicknotetab.com)
 
+### Настройка
 - [ ] дождаться подключения DNS чтобы сайт был доступен по домену
-- [ ] контент для главной страницы
-- [ ] добавить текст в privacy policy 
-- [ ] добавить текст в terms of service
 - [ ] привязать сайт к Google Search Console  
 - [ ] подключить Google Analytics 
+
+### Контент
+- [ ] логотип и иконка 
+- [ ] дизайн и контент для главной страницы (где видео и преднастроенный текст)
+- [ ] текст в privacy policy 
+- [ ] текст в terms of service
+- [ ] страницы кейсы с интеграцией (на самом деле интеграция это просто поддержка иконок) по популярным сервисам
+- [ ] Изображение для OpenGraph и Twitter Card куда ссылается meta-теги
+
+## SEO
+- [ ] добавить в robots.txt 
+- [ ] добавить в sitemap.xml
+
  
