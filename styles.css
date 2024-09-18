@@ -1,0 +1,68 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 60px; /* Примерная высота футера, может потребоваться корректировка */
+}
+
+h1 {
+    margin: 0;
+    text-align: center;
+}
+
+.description {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.cta-button {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #0071e3;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #005bbf;
+}
+
+footer {
+    background-color: #f8f8f8;
+    padding: 10px 0;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #e7e7e7;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+footer a {
+    color: #333;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

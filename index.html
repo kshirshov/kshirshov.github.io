@@ -22,13 +22,34 @@
     <meta name="twitter:creator" content="@k_shirshov"> <!-- Автор страницы -->
     <meta name="twitter:title" content="Quick Note Tab">
     <meta name="twitter:description" content="Простое расширение для заметок на новой вкладке браузера">
-    <meta name="twitter:image" content="https://quicknotetab.com/your-image.jpg"> <!-- URL изображения для карточки -->
+    <meta name="twitter:image" content="https://quicknotetab.com/your-image.jpg"> <!-- URL изображения ля карточки -->
     <!--Page Name-->
     <title>Quick Note Tab</title>
+    <!-- Favicons -->
+    <link rel="icon" href="assets/favicon.ico" sizes="any">
+    <link rel="icon" href="assets /icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/fav-for-apple.png">
+    <!-- Styles-->
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1 style="text-align: center;">Quick Note Tab</h1>
+    <main>
+        <h1>Quick Note Tab</h1>
+        <p class="description">A simple way to leave notes in a new tab</p>
+        <button class="cta-button">Intall Chrome Extension</button>
+    </main>
+
+    <footer>
+        <p>
+            Quick Note Tab &copy; <span id="currentYear"></span> | 
+            <a href="privacy-policy.html">Privacy Policy</a> | 
+            <a href="terms-of-use.html">Terms of Use</a>
+        </p>
+    </footer>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 
 </html>
