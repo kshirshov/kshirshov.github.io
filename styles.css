@@ -11,24 +11,27 @@ main {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding-bottom: 60px; /* Примерная высота футера, может потребоваться корректировка */
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
 }
 
 h1 {
-    margin: 0;
+    margin-top: 10; /* Убирает верхний отступ у заголовка, если он есть */
+    margin-bottom: 15px; /* Отступ от заголовка до описания: 15px */
     text-align: center;
 }
 
 .description {
-    margin-top: 20px;
+    margin-top: 0;
+    margin-bottom: 45px; /* Отступ от описания до кнопки: 25px */
     text-align: center;
     font-size: 18px;
 }
 
 .cta-button {
-    margin-top: 30px;
+    margin-top: 0;
     padding: 15px 30px;
     font-size: 18px;
     background-color: #0071e3;
@@ -65,4 +68,19 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+svg {
+    margin-bottom: 70px; /* Отступ от эмблемы до заголовка: 60px */
+    width: 132px; /* Устанавливаем ширину SVG */
+    height: 132px; /* Устанавливаем высоту SVG */
+}
+
+@keyframes blink {
+    0%, 80% { opacity: 1; }
+    40%, 50% { opacity: 0; }
+}
+
+.blink-cursor {
+    animation: blink 1.5s infinite;
 }
