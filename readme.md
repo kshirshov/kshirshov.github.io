@@ -21,3 +21,5 @@
 
 
  
+## Set up
+- https://app.improvmx.com/domains/quicknotetab.com/aliases - для форварда на mail@quicknotetab.com
