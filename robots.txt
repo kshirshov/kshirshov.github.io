@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /privacy/
 Disallow: /terms/
+Disallow: /extension/
