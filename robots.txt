@@ -3,3 +3,4 @@ Allow: /
 Disallow: /privacy/
 Disallow: /terms/
 Disallow: /extension/
+Disallow: /feedback/
