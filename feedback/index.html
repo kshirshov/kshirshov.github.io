@@ -9,19 +9,45 @@
 <body>
     <header>
         <a href="/">
-            <img src="../assets/logo.svg" alt="Logo">
+            <svg width="132" height="132" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_6_182)">
+                    <circle cx="90" cy="90" r="90" fill="url(#paint0_linear_6_182)"/>
+                    <path d="M10.9067 132.98C26.1603 107.375 55.8606 90 90.0006 90C124.141 90 153.841 107.375 169.094 132.98C153.841 160.991 124.141 180 90.0006 180C55.8606 180 26.1603 160.991 10.9067 132.98Z" fill="url(#paint1_linear_6_182)"/>
+                    <rect x="86" y="50" width="10" height="80" fill="white" class="blink-cursor"/>
+                </g>
+                <defs>
+                    <linearGradient id="paint0_linear_6_182" x1="-7.78847" y1="-19.4118" x2="225.852" y2="202.818" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#B5C8FF"/>
+                        <stop offset="1" stop-color="#5A7FEC"/>
+                    </linearGradient>
+                    <linearGradient id="paint1_linear_6_182" x1="4.06207" y1="80.2941" x2="107.118" y2="252.584" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#B5C8FF"/>
+                        <stop offset="1" stop-color="#5A7FEC"/>
+                    </linearGradient>
+                    <clipPath id="clip0_6_182">
+                        <rect width="180" height="180" fill="white"/>
+                    </clipPath>
+                </defs>
+            </svg>
         </a>
     </header>
 
     <main>
         <h1>Please help me improve the extension for you</h1>
-        <a href="https://chrome.google.com/webstore" class="button">Leave a review on Google Web Store</a>
-        <a href="mailto:your-email@example.com" class="button">Write privately via email</a>
+        <a href="https://chrome.google.com/webstore/detail/mpfdecfajdfcdbhjndaakpfggklckdbe" class="button">Leave a review on Google Web Store</a>
+        <a href="mailto:mail@quicknotetab.com" class="button">Write privately via email</a>
     </main>
 
     <footer>
-        <!-- Подвал как на главной странице -->
-        <p>© 2023 Your Company. All rights reserved.</p>
+        <p>
+            Quick Note Tab &copy; <span id="currentYear"></span> | 
+            <a href="../privacy/">Privacy Policy</a> | 
+            <a href="../terms/">Terms of Use</a> | 
+            <a href="mailto:mail@quicknotetab.com?subject=Quick%20Note%20Tab">mail@quicknotetab.com</a>
+        </p>
     </footer>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
