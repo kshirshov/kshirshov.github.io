@@ -25,7 +25,7 @@ h1 {
 
 .description {
     margin-top: 0;
-    margin-bottom: 45px; /* Отступ от описания до кнопки: 25px */
+    margin-bottom: 45px; 
     text-align: center;
     font-size: 18px;
 }
@@ -71,9 +71,9 @@ footer a:hover {
 }
 
 svg {
-    margin-bottom: 70px; /* Отступ от эмблемы до заголовка: 60px */
-    width: 132px; /* Устанавливаем ширину SVG */
-    height: 132px; /* Устанавливаем высоту SVG */
+    margin-bottom: 70px; 
+    width: 132px; 
+    height: 132px; 
 }
 
 @keyframes blink {
