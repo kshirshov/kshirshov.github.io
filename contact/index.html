@@ -38,40 +38,18 @@
 <body>
     <header class="site-header">
         <div class="header-container">
-            <div class="logo">
-                <a href="../index.html">
-                    <svg width="32" height="32" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_6_182_header_logo)">
-                            <circle cx="90" cy="90" r="90" fill="url(#paint0_linear_6_182_header_logo)"/>
-                            <path d="M10.9067 132.98C26.1603 107.375 55.8606 90 90.0006 90C124.141 90 153.841 107.375 169.094 132.98C153.841 160.991 124.141 180 90.0006 180C55.8606 180 26.1603 160.991 10.9067 132.98Z" fill="url(#paint1_linear_6_182_header_logo)"/>
-                            <rect x="86" y="50" width="10" height="80" fill="white" class="blink-cursor"/>
-                        </g>
-                        <defs>
-                            <linearGradient id="paint0_linear_6_182_header_logo" x1="-7.78847" y1="-19.4118" x2="225.852" y2="202.818" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#B5C8FF"/>
-                                <stop offset="1" stop-color="#5A7FEC"/>
-                            </linearGradient>
-                            <linearGradient id="paint1_linear_6_182_header_logo" x1="4.06207" y1="80.2941" x2="107.118" y2="252.584" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#B5C8FF"/>
-                                <stop offset="1" stop-color="#5A7FEC"/>
-                            </linearGradient>
-                            <clipPath id="clip0_6_182_header_logo">
-                                <rect width="180" height="180" fill="white"/>
-                            </clipPath>
-                        </defs>
-                    </svg>
-                </a>
-            </div>
+            <button class="nav-toggle" aria-label="toggle navigation" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../features/index.html">Features</a></li>
-                    <li><a href="../compare/index.html">Compare</a></li>
-                    <li><a href="../changelog/index.html">Changelog</a></li>
-                    <li><a href="../feedback/index.html">Feedback</a></li>
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../features/index.html" class="nav-link">Guide</a></li>
+                    <li><a href="../changelog/index.html" class="nav-link">Changelog</a></li>
+                    <li><a href="../feedback/index.html" class="nav-link">Feedback</a></li>
                 </ul>
             </nav>
-            <button class="header-cta" onclick="window.open('https://chrome.google.com/webstore/detail/mpfdecfajdfcdbhjndaakpfggklckdbe', '_blank')">Install Extension</button>
+            <a href="https://chromewebstore.google.com/detail/quick-note-tab/mpfdecfajdfcdbhjndaakpfggklckdbe" target="_blank" rel="noopener noreferrer" class="cta-button header-cta-new">Add to Browser</a>
         </div>
     </header>
 
@@ -83,36 +61,33 @@
     </main>
 
     <footer class="site-footer-new">
-        <div class="footer-container">
-            <div class="footer-column brand-info">
-                <p class="footer-title">Quick Note Tab (QNTB) &copy; <span id="currentYearNew"></span></p>
-                <p>Transform your background browser tab into a quick note-taking space</p>
+        <div class="footer-container-grid">
+            <div class="footer-brand-info">
+                <p class="footer-title-main">Quick Note Tab</p>
+                <p class="footer-tagline">Transform your background browser<br>tab into a quick note-taking space</p>
+                <p class="footer-copyright">&copy; <span id="currentYearNew"></span></p>
             </div>
-            <div class="footer-column links-col-1">
-                <h4>Overview</h4>
+            <div class="footer-links-group-1">
                 <ul>
-                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="https://chromewebstore.google.com/detail/quick-note-tab/mpfdecfajdfcdbhjndaakpfggklckdbe" target="_blank" rel="noopener noreferrer">Browser Extension</a></li>
                     <li><a href="../features/index.html">Features</a></li>
-                    <li><a href="../compare/index.html">Compare</a></li>
                     <li><a href="../changelog/index.html">Changelog</a></li>
-                    <li><a href="../extension/index.html">Browser Extension</a></li> 
-                </ul>
-            </div>
-            <div class="footer-column links-col-2">
-                <h4>Support</h4>
-                <ul>
                     <li><a href="../faq/index.html">FAQ</a></li>
-                    <li><a href="../contact/index.html">Contact</a></li>
                     <li><a href="../feedback/index.html">Feedback</a></li>
-                    <li><a href="../blog/index.html">Blog</a></li>
                 </ul>
             </div>
-            <div class="footer-column links-col-3">
-                <h4>Legal</h4>
+            <div class="footer-links-group-2">
                 <ul>
-                    <li><a href="../terms/index.html">Terms of Use</a></li>
-                    <li><a href="../privacy/index.html">Privacy Policy</a></li>
+                    <li><a href="../compare/index.html">Compare</a></li>
+                    <li><a href="../compare/qntb-vs-papier-extension/index.html">Quick Note Tab vs Papier</a></li>
+                    <li><a href="../compare/qntb-vs-tab-notes/index.html">Quick Note Tab vs Tab Notes</a></li>
+                    <li><a href="../compare/qntb-vs-icloud-notes/index.html">Quick Note Tab vs iCloud Notes</a></li>
                 </ul>
+            </div>
+            <div class="footer-legal-links">
+                <a href="../terms/index.html">Terms of Use</a>
+                <span>|</span>
+                <a href="../privacy/index.html">Privacy Policy</a>
             </div>
         </div>
     </footer>
@@ -120,6 +95,19 @@
         const currentYearSpanNew = document.getElementById('currentYearNew');
         if (currentYearSpanNew) {
             currentYearSpanNew.textContent = new Date().getFullYear();
+        }
+    </script>
+    <script>
+        // Mobile Nav Toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        if (navToggle && mainNav) {
+            navToggle.addEventListener('click', function() {
+                mainNav.classList.toggle('nav-open');
+                const isExpanded = mainNav.classList.contains('nav-open');
+                navToggle.setAttribute('aria-expanded', isExpanded);
+                this.classList.toggle('nav-open'); 
+            });
         }
     </script>
 </body>
