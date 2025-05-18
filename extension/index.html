@@ -5,54 +5,103 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Redirecting to Chrome Web Store</title>
+    <meta name="robots" content="noindex, follow">
+    <title>Quick Note Tab Extension - Redirecting...</title>
     <!-- Favicons -->
     <link rel="icon" href="../assets/favicon.ico" sizes="any">
     <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="../assets/fav-for-apple.png">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 1024px;
-            margin: 50px auto 150px;
-            padding: 0 20px;
-        }
-        h1 {
-            color: #000;
-            margin-bottom: 0.5em;
-        }
-        p {
-            margin-top: 0.5em;
-        }
-    </style>
-    <script>
-        window.onload = function() {
-            window.location.href = "https://chrome.google.com/webstore/detail/mpfdecfajdfcdbhjndaakpfggklckdbe";
-        }
-    </script>
-    <!-- Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GH02FYPQYB"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-GH02FYPQYB');
-    </script>
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Meta Description and other SEO tags are less critical for a redirect page -->
+    <!-- Google Analytics if needed, but usually not for a pure redirect -->
+    <meta http-equiv="refresh" content="0; url=https://chromewebstore.google.com/detail/mpfdecfajdfcdbhjndaakpfggklckdbe">
 </head>
 
 <body>
-    <div class="container">
-        <h1>Redirecting to Chrome Web Store</h1>
-        <p>If you are not redirected automatically, please <a href="https://chrome.google.com/webstore/detail/mpfdecfajdfcdbhjndaakpfggklckdbe">click here</a>.</p>
-    </div>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <svg width="32" height="32" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_6_182_header_logo)">
+                            <circle cx="90" cy="90" r="90" fill="url(#paint0_linear_6_182_header_logo)"/>
+                            <path d="M10.9067 132.98C26.1603 107.375 55.8606 90 90.0006 90C124.141 90 153.841 107.375 169.094 132.98C153.841 160.991 124.141 180 90.0006 180C55.8606 180 26.1603 160.991 10.9067 132.98Z" fill="url(#paint1_linear_6_182_header_logo)"/>
+                            <rect x="86" y="50" width="10" height="80" fill="white" class="blink-cursor"/>
+                        </g>
+                        <defs>
+                            <linearGradient id="paint0_linear_6_182_header_logo" x1="-7.78847" y1="-19.4118" x2="225.852" y2="202.818" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#B5C8FF"/>
+                                <stop offset="1" stop-color="#5A7FEC"/>
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_6_182_header_logo" x1="4.06207" y1="80.2941" x2="107.118" y2="252.584" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#B5C8FF"/>
+                                <stop offset="1" stop-color="#5A7FEC"/>
+                            </linearGradient>
+                            <clipPath id="clip0_6_182_header_logo">
+                                <rect width="180" height="180" fill="white"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../features/index.html">Features</a></li>
+                    <li><a href="../compare/index.html">Compare</a></li>
+                    <li><a href="../changelog/index.html">Changelog</a></li>
+                    <li><a href="../feedback/index.html">Feedback</a></li>
+                </ul>
+            </nav>
+            <button class="header-cta" onclick="window.open('https://chrome.google.com/webstore/detail/mpfdecfajdfcdbhjndaakpfggklckdbe', '_blank')">Install Extension</button>
+        </div>
+    </header>
+
+    <main>
+        <h1>Redirecting...</h1>
+        <p>If you are not redirected automatically, please <a href="https://chromewebstore.google.com/detail/mpfdecfajdfcdbhjndaakpfggklckdbe">click here to go to the Chrome Web Store</a>.</p>
+    </main>
+
+    <footer class="site-footer-new">
+        <div class="footer-container">
+            <div class="footer-column brand-info">
+                <p class="footer-title">Quick Note Tab (QNTB) &copy; <span id="currentYearNew"></span></p>
+                <p>Transform your background browser tab into a quick note-taking space</p>
+            </div>
+            <div class="footer-column links-col-1">
+                <h4>Overview</h4>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../features/index.html">Features</a></li>
+                    <li><a href="../compare/index.html">Compare</a></li>
+                    <li><a href="../changelog/index.html">Changelog</a></li>
+                    <li><a href="../extension/index.html">Browser Extension</a></li> 
+                </ul>
+            </div>
+            <div class="footer-column links-col-2">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="../faq/index.html">FAQ</a></li>
+                    <li><a href="../contact/index.html">Contact</a></li>
+                    <li><a href="../feedback/index.html">Feedback</a></li>
+                    <li><a href="../blog/index.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-column links-col-3">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="../terms/index.html">Terms of Use</a></li>
+                    <li><a href="../privacy/index.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const currentYearSpanNew = document.getElementById('currentYearNew');
+        if (currentYearSpanNew) {
+            currentYearSpanNew.textContent = new Date().getFullYear();
+        }
+    </script>
 </body>
 
 </html>

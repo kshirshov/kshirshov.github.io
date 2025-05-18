@@ -4,12 +4,15 @@ body {
     flex-direction: column;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Более современный системный шрифт */
 }
 
 main {
     flex: 1;
-    display: flex;
+    /* Стили ниже могут быть специфичны для главной страницы 
+       Если они нужны только там, можно обернуть контент главной в доп. div с классом 
+       или использовать более специфичные селекторы, например, body.homepage main {...} */
+    display: flex; 
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -17,20 +20,21 @@ main {
     padding: 20px;
 }
 
-h1 {
-    margin-top: 10; /* Убирает верхний отступ у заголовка, если он есть */
-    margin-bottom: 15px; /* Отступ от заголовка до описания: 15px */
+/* Стили для контента главной страницы (восстановлены) */
+main > h1 { /* Более специфичный селектор для h1 на главной, если нужно */
+    margin-top: 10px; 
+    margin-bottom: 15px; 
     text-align: center;
 }
 
-.description {
+main > .description { /* Более специфичный селектор для description на главной */
     margin-top: 0;
     margin-bottom: 45px; 
     text-align: center;
     font-size: 18px;
 }
 
-.cta-button {
+main > .cta-button { /* Стили для основной CTA кнопки на главной странице */
     margin-top: 0;
     padding: 15px 30px;
     font-size: 18px;
@@ -42,35 +46,11 @@ h1 {
     transition: background-color 0.3s ease;
 }
 
-.cta-button:hover {
+main > .cta-button:hover { 
     background-color: #005bbf;
 }
 
-footer {
-    background-color: #f8f8f8;
-    padding: 10px 0;
-    text-align: center;
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-    border-top: 1px solid #e7e7e7;
-}
-
-footer p {
-    margin: 0;
-    font-size: 14px;
-}
-
-footer a {
-    color: #333;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-svg {
+main > svg { /* Стили для SVG лого на главной */
     margin-bottom: 70px; 
     width: 132px; 
     height: 132px; 
@@ -83,4 +63,317 @@ svg {
 
 .blink-cursor {
     animation: blink 1.5s infinite;
+}
+
+/* Header Styles - NEW DESIGN (Центрированная, воздушная, с блюром) */
+.site-header {
+    /* background-color: #ffffff; */ /* Убираем непрозрачный фон */
+    padding: 15px 20px; /* Общий паддинг для "липкой" области */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* border-bottom и box-shadow можно убрать или оставить по вкусу */
+    display: flex; /* Добавляем flex для центрирования дочернего inline-flex */
+    justify-content: center; /* Центрируем .header-container */
+}
+
+.header-container {
+    display: inline-flex; /* Чтобы блок сжимался по содержимому */
+    align-items: center;
+    gap: 25px; /* Отступ между блоком навигации и CTA */
+    padding: 10px 25px; /* Внутренний паддинг для "плашки" (можно подобрать) */
+    background: rgba(255, 255, 255, 0.80); /* Полупрозрачный фон */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Для Safari */
+    border-radius: 30px; /* Пример скругления для плашки, подбери значение */
+    /* Центрируем саму плашку, если .site-header на всю ширину */
+    margin: 0 auto; /* Это не сработает с inline-flex, нужно родителя заставить центрировать */
+    /* Для центрирования inline-flex блока, родитель (.site-header) должен быть text-align: center или display:flex; justify-content:center */
+}
+
+.main-nav {
+    display: flex; 
+    align-items: center;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Отступ между ссылками-пилюлями, можно заменить на margin у .nav-link если gap не везде поддерживается */
+}
+
+.main-nav .nav-link {
+    text-decoration: none;
+    color: #555555; 
+    font-weight: 400; 
+    font-size: 15px;
+    padding: 10px 18px; /* Слегка скорректировал паддинг пилюль */
+    border-radius: 30px; /* Максимальное скругление пилюль */
+    /* margin убран, используем gap у родителя ul */
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    border: 1px solid transparent; 
+}
+
+.main-nav .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Более нейтральный ховер для прозрачного стиля */
+    color: #000000;
+    border-color: transparent; /* Убираем рамку на ховере, если была от active */
+}
+
+.main-nav .nav-link.active {
+    border: 1px solid #E1DFDF; 
+    color: #000000; 
+    background-color: rgba(0, 0, 0, 0.03); /* Легкий фон для активной, чтобы выделялась */
+}
+
+/* Кнопка "Add to Browser" в шапке */
+.header-cta-new {
+    padding: 10px 18px; /* Синхронизируем паддинг с nav-link */
+    background-color: transparent; 
+    color: #007bff; 
+    border: 1px solid transparent; 
+    border-radius: 30px; /* Максимальное скругление */
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400; 
+    transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    /* margin-left убран, используем gap у .header-container */
+}
+
+.header-cta-new:hover {
+    background-color: transparent; 
+    color: #0056b3; 
+    border-color: #007bff; 
+}
+
+/* Hamburger Menu Button & Mobile Nav */
+.nav-toggle {
+    display: none; /* Скрыт на десктопе */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute; /* Позиционируем относительно header-container */
+    left: 15px; /* Отступ слева на мобильных */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+}
+
+/* ... стили для .hamburger, .hamburger::before, .hamburger::after остаются как были ... */
+/* ... стили для .nav-toggle.nav-open .hamburger ... тоже ... */
+
+/* Footer Styles - NEW DESIGN */
+.site-footer-new {
+    background-color: #f8f9fa;
+    color: #555555;
+    padding: 60px 20px 40px;
+    font-size: 14px; /* Уменьшил базовый шрифт футера */
+    border-top: 1px solid #eeeeee;
+}
+
+.footer-container-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Адаптивные колонки */
+    gap: 30px; /* Отступ между колонками */
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.footer-brand-info .footer-title-main {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.footer-brand-info .footer-tagline {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.footer-brand-info .footer-copyright {
+    font-size: 13px;
+    color: #777777;
+}
+
+.footer-links-group-1 ul,
+.footer-links-group-2 ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links-group-1 li,
+.footer-links-group-2 li {
+    margin-bottom: 12px;
+}
+
+.footer-links-group-1 a,
+.footer-links-group-2 a {
+    text-decoration: none;
+    color: #555555;
+}
+
+.footer-links-group-1 a:hover,
+.footer-links-group-2 a:hover {
+    color: #007bff;
+}
+
+.footer-legal-links {
+    grid-column: 1 / -1; /* Растягиваем на всю ширину грида, если колонок меньше 4 */
+    text-align: center; /* Центрируем */
+    margin-top: 30px; /* Отступ сверху */
+    padding-top: 20px;
+    border-top: 1px solid #eeeeee; /* Разделитель */
+}
+
+.footer-legal-links a {
+    text-decoration: none;
+    color: #555555;
+    margin: 0 10px;
+}
+
+.footer-legal-links a:hover {
+    color: #007bff;
+}
+
+.footer-legal-links span {
+    color: #cccccc;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 8px 15px; 
+        background: rgba(255, 255, 255, 0.80); 
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 0; 
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+    }
+
+    .header-container {
+        display: flex; /* Убедимся, что это flex */
+        justify-content: space-between; 
+        align-items: center; /* Выравниваем по центру вертикально */
+        width: 100%; 
+        padding: 0; 
+        background: none; 
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border-radius: 0;
+        margin: 0; 
+    }
+
+    .nav-toggle {
+        display: block; 
+        padding: 8px; 
+        margin-right: 10px; /* Добавим небольшой отступ справа от бургера, чтобы кнопка не прилипала */
+    }
+
+    .site-header .main-nav {
+        order: 3; 
+        display: none; 
+        position: absolute;
+        top: 100%; 
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.95); 
+        backdrop-filter: blur(5px); 
+        -webkit-backdrop-filter: blur(5px);
+        border-top: 1px solid #eeeeee;
+        box-shadow: 0 3px 5px rgba(0,0,0,0.05);
+        padding: 0; 
+    }
+
+    .site-header .main-nav ul {
+        flex-direction: column;
+        align-items: stretch; /* Ссылки занимают всю ширину */
+    }
+
+    .site-header .main-nav .nav-link {
+        display: block;
+        padding: 15px 20px; /* Увеличил паддинг для мобильных ссылок */
+        margin: 0;
+        border-radius: 0; /* Убираем скругления для мобильного меню */
+        border: none; /* Убираем рамку */
+        border-bottom: 1px solid #f0f0f0; 
+        text-align: left;
+    }
+    .site-header .main-nav .nav-link.active {
+        background-color: #e9ecef;
+        border: none;
+        color: #007bff;
+    }
+    .site-header .main-nav li:last-child .nav-link {
+        border-bottom: none;
+    }
+
+    .header-cta-new {
+        padding: 8px 15px; 
+        font-size: 14px;
+        margin-left: auto; /* Возвращаем для прижатия вправо */
+    }
+
+    .footer-container-grid {
+        grid-template-columns: 1fr; /* Одна колонка на мобильных */
+        text-align: center;
+    }
+
+    .footer-brand-info .footer-tagline br { /* Убираем перенос строки в слогане на мобильных, если мешает */
+        display: none;
+    }
+
+    .footer-legal-links {
+        margin-top: 20px;
+    }
+}
+
+/* Дополнительные стили для .hamburger, если они не были включены ранее */
+.hamburger {
+    display: block;
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background-color: #333;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: #333;
+    left: 0;
+    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out, bottom 0.3s ease-in-out;
+}
+
+.hamburger::before {
+    top: -7px;
+}
+
+.hamburger::after {
+    bottom: -7px;
+}
+
+.nav-toggle.nav-open .hamburger {
+    background-color: transparent; 
+}
+
+.nav-toggle.nav-open .hamburger::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.nav-toggle.nav-open .hamburger::after {
+    bottom: 0;
+    transform: rotate(-45deg);
 }
