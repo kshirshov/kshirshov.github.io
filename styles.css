@@ -167,84 +167,105 @@ main > svg { /* Стили для SVG лого на главной */
 /* ... стили для .hamburger, .hamburger::before, .hamburger::after остаются как были ... */
 /* ... стили для .nav-toggle.nav-open .hamburger ... тоже ... */
 
-/* Footer Styles - NEW DESIGN */
+/* Footer Styles - NEW DESIGN V2 (Прозрачный фон, 3 колонки) */
 .site-footer-new {
-    background-color: #f8f9fa;
+    background-color: transparent; /* Прозрачный фон */
     color: #555555;
     padding: 60px 20px 40px;
-    font-size: 14px; /* Уменьшил базовый шрифт футера */
-    border-top: 1px solid #eeeeee;
+    font-size: 14px;
+    border-top: 1px solid #eeeeee; /* Возвращаем верхнюю границу-разделитель */
 }
 
-.footer-container-grid {
+.footer-container-grid-v2 { /* Новый класс для грида */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Адаптивные колонки */
-    gap: 30px; /* Отступ между колонками */
+    grid-template-columns: 1.5fr 1fr 1fr; /* Первая колонка шире, две другие равны */
+    gap: 30px; 
     max-width: 1100px;
     margin: 0 auto;
+    align-items: start; /* Добавлено для выравнивания колонок по верху */
 }
 
-.footer-brand-info .footer-title-main {
+.footer-col-brand-legal .footer-title-main {
     font-size: 18px;
     font-weight: 600;
-    color: #000000;
+    color: #333333; /* Текст темнее для прозрачного фона */
     margin-bottom: 10px;
+    margin-top: 0; /* Убираем верхний отступ */
 }
 
-.footer-brand-info .footer-tagline {
+.footer-col-brand-legal .footer-tagline {
     font-size: 14px;
     line-height: 1.6;
     margin-bottom: 15px;
+    color: #555555;
 }
 
-.footer-brand-info .footer-copyright {
+.footer-col-brand-legal .footer-copyright {
     font-size: 13px;
     color: #777777;
+    margin-bottom: 15px; /* Отступ перед legal links */
 }
 
-.footer-links-group-1 ul,
-.footer-links-group-2 ul {
+.footer-legal-links-inline a {
+    text-decoration: none;
+    color: #555555;
+    font-size: 13px;
+}
+
+.footer-legal-links-inline a:hover {
+    color: #007bff;
+}
+
+.footer-legal-links-inline span {
+    color: #cccccc;
+    margin: 0 8px;
+}
+
+.footer-col-main-links ul,
+.footer-col-compare-links ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.footer-links-group-1 li,
-.footer-links-group-2 li {
+.footer-col-main-links li,
+.footer-col-compare-links li {
     margin-bottom: 12px;
 }
 
-.footer-links-group-1 a,
-.footer-links-group-2 a {
+.footer-col-main-links a,
+.footer-col-compare-links a {
     text-decoration: none;
     color: #555555;
 }
 
-.footer-links-group-1 a:hover,
-.footer-links-group-2 a:hover {
+.footer-col-main-links a:hover,
+.footer-col-compare-links a:hover {
     color: #007bff;
 }
 
-.footer-legal-links {
-    grid-column: 1 / -1; /* Растягиваем на всю ширину грида, если колонок меньше 4 */
-    text-align: center; /* Центрируем */
-    margin-top: 30px; /* Отступ сверху */
-    padding-top: 20px;
-    border-top: 1px solid #eeeeee; /* Разделитель */
+/* Удаляем старые стили для .footer-container-grid и .footer-legal-links, если они были */
+.footer-container-grid { /* Это старый класс, если он еще где-то используется */
+    /* display: none; или переопределить */
+}
+.footer-legal-links { /* Это старый класс */
+    /* display: none; или переопределить */
 }
 
-.footer-legal-links a {
-    text-decoration: none;
-    color: #555555;
-    margin: 0 10px;
-}
 
-.footer-legal-links a:hover {
-    color: #007bff;
-}
+/* Mobile Styles for V2 Footer */
+@media (max-width: 768px) {
+    .footer-container-grid-v2 {
+        grid-template-columns: 1fr; /* Одна колонка на мобильных */
+        text-align: center;
+    }
 
-.footer-legal-links span {
-    color: #cccccc;
+    .footer-col-brand-legal .footer-tagline br {
+        display: none;
+    }
+    .footer-legal-links-inline {
+        margin-top: 20px; /* Отступ для legal links на мобильных */
+    }
 }
 
 /* Mobile Styles */
