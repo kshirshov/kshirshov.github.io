@@ -35,29 +35,46 @@ body {
 
 main {
     flex: 1;
+    padding: 20px;
+}
+
+.homepage-main {
     display: flex; 
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 20px;
 }
 
+.homepage-content {
+    padding: 10vh 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
-main > h1 {
+.content-main {
+    max-width: 920px;
+    min-width: 320px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.homepage-content h1 {
     margin-top: 10px; 
     margin-bottom: 15px; 
     text-align: center;
 }
 
-main > .description {
+.homepage-content .description {
     margin-top: 0;
     margin-bottom: 45px; 
     text-align: center;
     font-size: 18px;
 }
 
-main > .cta-button {
+.homepage-content .cta-button {
     margin-top: 0;
     padding: 15px 30px;
     font-size: 18px;
@@ -69,14 +86,59 @@ main > .cta-button {
     transition: background-color var(--transition-background);
 }
 
-main > .cta-button:hover { 
+.homepage-content .cta-button:hover { 
     background-color: var(--color-blue-hover);
 }
 
-main > svg {
+.homepage-content svg {
     margin-bottom: 70px; 
     width: 132px; 
     height: 132px; 
+}
+
+.content-main h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--color-text-primary);
+}
+
+.content-main h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: var(--color-text-primary);
+}
+
+.content-main p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: var(--color-text-secondary);
+}
+
+.faq-container {
+    margin-top: 30px;
+}
+
+.faq-item {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-item h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: var(--color-text-primary);
+}
+
+.faq-item p {
+    margin-bottom: 0;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
 }
 
 @keyframes blink {
