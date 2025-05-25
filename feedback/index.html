@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#ffffff">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="noindex, nofollow">
     <meta name="author" content="Kos Shi">
     
     <meta name="description" content="We value your feedback on Quick Note Tab! Whether you're uninstalling or just have suggestions, help us make the extension better. Your thoughts on features, privacy, or usability are crucial."> 
@@ -82,7 +82,14 @@
                     </div>
                 </div>
                 <div class="feedback-image">
+                    <!-- Cat image (shown by default for uninstall visitors) -->
                     <img src="../assets/cat_quick_note_tab.png" alt="Cute cat with big eyes asking for feedback" class="feedback-cat">
+                    
+                    <!-- Google Web Store Block (hidden by default, shown for regular visitors) -->
+                    <div class="webstore-block" style="display: none;">
+                        <img src="../assets/google-web-store-emblem.svg" alt="Google Web Store" class="webstore-icon">
+                        <a href="https://chromewebstore.google.com/detail/quick-note-tab/mpfdecfajdfcdbhjndaakpfggklckdbe/reviews" target="_blank" rel="noopener noreferrer" class="webstore-link">Rate on Google Web Store</a>
+                    </div>
                 </div>
             </div>
         </div>

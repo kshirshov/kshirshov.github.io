@@ -1,3 +1,36 @@
+// Check URL parameters and update content accordingly
+function checkUninstallParameter() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const isUninstall = urlParams.has('uninstall');
+    
+    const title = document.querySelector('h1');
+    const description = document.querySelector('.feedback-description');
+    const catImage = document.querySelector('.feedback-cat');
+    
+    if (!isUninstall) {
+        // Default content for regular visitors - motivating without sad connotation
+        title.textContent = 'Share Ideas';
+        description.textContent = 'Suggestions and feedback directly influence new features and improvements that benefit the entire community.';
+        
+        // Hide the cat image for regular visitors and show Web Store block instead
+        if (catImage) {
+            catImage.style.display = 'none';
+        }
+        
+        const webStoreBlock = document.querySelector('.webstore-block');
+        if (webStoreBlock) {
+            webStoreBlock.style.display = 'flex';
+        }
+    } else {
+        // For uninstall visitors - hide Web Store block and show cat
+        const webStoreBlock = document.querySelector('.webstore-block');
+        if (webStoreBlock) {
+            webStoreBlock.style.display = 'none';
+        }
+    }
+    // If uninstall parameter exists, keep current content (no changes needed)
+}
+
 // Update Twitter link with custom text
 function updateTwitterLink(event) {
     event.preventDefault();
@@ -101,6 +134,9 @@ function applyHighlighting() {
 
 // Initialize textarea
 document.addEventListener('DOMContentLoaded', function() {
+    // Check URL parameters and update content
+    checkUninstallParameter();
+    
     const textarea = document.getElementById('tweetText');
     
     // Initial highlighting
