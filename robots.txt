@@ -4,3 +4,5 @@ Disallow: /privacy/
 Disallow: /terms/
 Disallow: /extension/
 Disallow: /feedback/
+
+Sitemap: https://quicknotetab.com/sitemap.xml

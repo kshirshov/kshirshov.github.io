@@ -33,7 +33,72 @@
         gtag('js', new Date());
         gtag('config', 'G-GH02FYPQYB');
     </script>
-    <!-- TODO: Добавить JSON-LD разметку типа FAQPage сюда или в тело документа -->
+    
+    <!-- Schema.org FAQPage Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is Quick Note Tab completely free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, Quick Note Tab is completely free with no hidden costs, subscriptions, or premium features. We believe note-taking should be accessible to everyone."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where are my notes stored?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Your notes are stored locally on your device for maximum privacy. If you have Chrome Sync enabled, your notes will also sync across your Chrome browsers on different devices."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use Quick Note Tab offline?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! Quick Note Tab works completely offline. Your notes are stored locally, so you can access and edit them even without an internet connection."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Quick Note Tab support Markdown?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Currently, Quick Note Tab is designed for plain text notes to maintain simplicity. We focus on providing a fast, lightweight note-taking experience without formatting complexity."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I export my notes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Your notes are stored in Chrome's local storage. You can manually copy and paste your notes to save them elsewhere. We're considering adding export features in future updates."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is my data private and secure?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely. Quick Note Tab doesn't send your notes to any external servers. Everything stays on your device, ensuring complete privacy and security of your personal notes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which browsers support Quick Note Tab?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Quick Note Tab is currently available for Chrome and Chromium-based browsers (like Edge, Brave, Opera). We're focusing on providing the best experience for Chrome users first."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 
 <body>
@@ -57,7 +122,43 @@
     <main>
         <h1>Frequently Asked Questions (FAQ)</h1>
         <p>Find answers to common questions about Quick Note Tab below.</p>
-        <!-- FAQ content (questions and answers) will be added here. JSON-LD for FAQPage schema will also be implemented. -->
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <h2>Is Quick Note Tab completely free?</h2>
+                <p>Yes, Quick Note Tab is completely free with no hidden costs, subscriptions, or premium features. We believe note-taking should be accessible to everyone.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h2>Where are my notes stored?</h2>
+                <p>Your notes are stored locally on your device for maximum privacy. If you have Chrome Sync enabled, your notes will also sync across your Chrome browsers on different devices.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h2>Can I use Quick Note Tab offline?</h2>
+                <p>Yes! Quick Note Tab works completely offline. Your notes are stored locally, so you can access and edit them even without an internet connection.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h2>Does Quick Note Tab support Markdown?</h2>
+                <p>Currently, Quick Note Tab is designed for plain text notes to maintain simplicity. We focus on providing a fast, lightweight note-taking experience without formatting complexity.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h2>Can I export my notes?</h2>
+                <p>Your notes are stored in Chrome's local storage. You can manually copy and paste your notes to save them elsewhere. We're considering adding export features in future updates.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h2>Is my data private and secure?</h2>
+                <p>Absolutely. Quick Note Tab doesn't send your notes to any external servers. Everything stays on your device, ensuring complete privacy and security of your personal notes.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h2>Which browsers support Quick Note Tab?</h2>
+                <p>Quick Note Tab is currently available for Chrome and Chromium-based browsers (like Edge, Brave, Opera). We're focusing on providing the best experience for Chrome users first.</p>
+            </div>
+        </div>
     </main>
 
     <footer class="site-footer-new">
