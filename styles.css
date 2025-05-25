@@ -1149,6 +1149,16 @@ code {
         grid-template-columns: 1fr;
         gap: 30px;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .feedback-image {
+        order: -1; /* Котенок будет первым */
+    }
+    
+    .feedback-text {
+        order: 1; /* Текст будет вторым */
     }
     
     /* Removed - now using unified .page-container h1 styles */
