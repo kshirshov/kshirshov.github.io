@@ -25,6 +25,19 @@
     --backdrop-blur-light: blur(5px);
 }
 
+/* Global box-sizing and overflow control */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+html, body {
+    max-width: 100%;
+}
+
 body {
     min-height: 100vh;
     display: flex;
@@ -36,7 +49,9 @@ body {
 
 main {
     flex: 1;
-    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .homepage-main {
@@ -45,20 +60,56 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
+    min-height: calc(100vh - 200px); /* Adjust for header/footer */
 }
 
 .homepage-content {
-    padding: 10vh 0;
+    max-width: 920px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
+/* Unified content container */
+.page-container {
+    max-width: 920px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+}
+
+/* Unified heading styles */
+.page-container h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--color-text-primary);
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+.page-container h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: var(--color-text-primary);
+}
+
+.page-container p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: var(--color-text-secondary);
+}
+
+/* Legacy support - keeping for any missed references */
 .content-main {
     max-width: 920px;
-    min-width: 320px;
+    width: 100%;
     margin: 0 auto;
+    padding: 20px;
     text-align: left;
 }
 
@@ -945,7 +996,7 @@ code {
 /* Feedback Page Styles */
 .feedback-hero {
     margin-bottom: 10px;
-    padding: 40px 0;
+    padding: 20px 0;
 }
 
 .feedback-content {
@@ -955,12 +1006,7 @@ code {
     align-items: center;
 }
 
-.feedback-text h1 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: var(--color-text-primary);
-    line-height: 1.2;
-}
+/* Removed - now using unified .page-container h1 styles */
 
 .feedback-subtitle {
     font-size: 20px;
@@ -1000,6 +1046,7 @@ code {
 
 .tweet-textarea {
     width: 100%;
+    max-width: 100%;
     min-height: 80px;
     border: 1px solid var(--color-border-light);
     border-radius: 4px;
@@ -1022,6 +1069,7 @@ code {
 
 .highlight-div {
     width: 100%;
+    max-width: 100%;
     min-height: 80px;
     border: 1px solid var(--color-border-light);
     border-radius: 4px;
@@ -1036,6 +1084,8 @@ code {
     background: white;
     transition: border-color var(--transition-default);
     overflow-y: auto;
+    overflow-x: hidden;
+    word-wrap: break-word;
 }
 
 .highlight-div:focus {
@@ -1074,21 +1124,25 @@ code {
 
 
 
-/* Mobile responsiveness for feedback page */
+/* Mobile responsiveness for main and content */
 @media (max-width: 768px) {
-    .feedback-hero {
-        margin-bottom: 40px;
-        padding: 20px 0;
-        overflow-x: hidden;
-        width: 85vw;
-        margin-left: auto;
-        margin-right: auto;
+    .page-container,
+    .content-main,
+    .homepage-content {
+        padding: 15px;
     }
     
-    .content-main {
-        padding: 0 15px;
-        max-width: 100%;
-        box-sizing: border-box;
+    /* Unified mobile heading styles */
+    .page-container h1 {
+        font-size: 28px;
+        margin-bottom: 15px;
+        word-wrap: break-word;
+    }
+    
+    .feedback-hero {
+        margin-bottom: 20px;
+        padding: 10px 0;
+        overflow-x: hidden;
     }
     
     .feedback-content {
@@ -1097,11 +1151,7 @@ code {
         text-align: center;
     }
     
-    .feedback-text h1 {
-        font-size: 28px;
-        margin-bottom: 15px;
-        word-wrap: break-word;
-    }
+    /* Removed - now using unified .page-container h1 styles */
     
     .feedback-subtitle {
         font-size: 18px;
@@ -1128,8 +1178,6 @@ code {
         font-size: 15px;
         min-height: 70px;
         padding: 6px;
-        width: 100%;
-        box-sizing: border-box;
         text-align: left;
     }
     
@@ -1144,20 +1192,12 @@ code {
         text-align: left;
         width: 100%;
         max-width: 100%;
-        box-sizing: border-box;
-    }
-    
-    .highlight-div {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
     }
     
     .custom-twitter-button {
         font-size: 15px;
         padding: 6px 18px;
-        width: auto;
         max-width: 100%;
-        box-sizing: border-box;
+        word-wrap: break-word;
     }
 }
