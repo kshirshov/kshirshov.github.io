@@ -258,12 +258,6 @@ main > svg {
 }
 
 
-.footer-container-grid { 
-}
-.footer-legal-links { 
-}
-
-
 @media (max-width: 768px) {
     .footer-container-grid-v2 {
         grid-template-columns: 1fr; 
@@ -350,19 +344,6 @@ main > svg {
         padding: 8px 15px; 
         font-size: 14px;
         margin-left: auto; 
-    }
-
-    .footer-container-grid {
-        grid-template-columns: 1fr; 
-        text-align: center;
-    }
-
-    .footer-brand-info .footer-tagline br { 
-        display: none;
-    }
-
-    .footer-legal-links {
-        margin-top: 20px;
     }
 }
 
