@@ -38,6 +38,8 @@
         gtag('js', new Date());
         gtag('config', 'G-GH02FYPQYB');
     </script>
+    
+
 </head>
 
 <body>
@@ -59,8 +61,30 @@
     </header>
 
     <main class="content-main">
-        <h1>Feedback</h1>
-        <p>This is the feedback page. Content related to the uninstallation feedback form (PLAN.MD Task 2) will be added here later.</p>
+        <div class="feedback-hero">
+            <div class="feedback-content">
+                <div class="feedback-text">
+                    <h1>Wait, before you go! 🥺</h1>
+                    <p class="feedback-description">Your feedback directly shapes the next update. What would make Quick Note Tab perfect for you and other users? Help others discover what improvements they might want too!</p>
+                    
+                    <!-- Tweet Composer -->
+                    <div class="tweet-composer">
+                        <textarea id="tweetText" class="tweet-textarea" placeholder="I would like @QNTB to have...">I would like @QNTB to have...  
+
+#browserextension #buildinpublic @k_shirshov</textarea>
+                        <button class="custom-twitter-button" onclick="updateTwitterLink(event)">
+                            <svg class="twitter-icon" width="16" height="16" viewBox="0 0 1200 1227" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" fill="currentColor"/>
+                            </svg>
+                            Mention @qntb
+                        </button>
+                    </div>
+                </div>
+                <div class="feedback-image">
+                    <img src="../assets/cat_quick_note_tab.png" alt="Cute cat with big eyes asking for feedback" class="feedback-cat">
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="site-footer-new">
@@ -113,6 +137,8 @@
             });
         }
     </script>
+    <script src="feedback.js"></script>
+
 </body>
 
 </html>
