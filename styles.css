@@ -1172,7 +1172,6 @@ code {
 
 
 
-/* Mobile responsiveness for main and content */
 @media (max-width: 768px) {
     .page-container,
     .content-main,
@@ -1180,14 +1179,14 @@ code {
         padding: 15px;
     }
     
-    /* Unified mobile heading styles */
+    
     .page-container h1 {
         font-size: 28px;
         margin-bottom: 15px;
         word-wrap: break-word;
     }
     
-    /* Comparison Hero Image Mobile */
+    
     .comparison-hero-image {
         margin: 25px 0;
     }
@@ -1226,14 +1225,14 @@ code {
     }
     
     .feedback-image {
-        order: -1; /* Котенок будет первым */
+        order: -1; 
     }
     
     .feedback-text {
-        order: 1; /* Текст будет вторым */
+        order: 1; 
     }
     
-    /* Removed - now using unified .page-container h1 styles */
+    
     
     .feedback-subtitle {
         font-size: 18px;
@@ -1284,7 +1283,6 @@ code {
     }
 }
 
-/* Breadcrumbs Navigation */
 .breadcrumbs {
     background-color: #f8f9fa;
     padding: 12px 0;
@@ -1330,7 +1328,6 @@ code {
     font-weight: 500;
 }
 
-/* Mobile responsiveness for breadcrumbs */
 @media (max-width: 768px) {
     .breadcrumbs {
         padding: 10px 0;
