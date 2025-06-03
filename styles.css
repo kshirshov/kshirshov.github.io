@@ -460,6 +460,18 @@ main {
         text-align: center;
     }
 
+    .footer-col-brand-legal {
+        order: 3;
+    }
+
+    .footer-col-main-links {
+        order: 1;
+    }
+
+    .footer-col-compare-links {
+        order: 2;
+    }
+
     .footer-col-brand-legal .footer-tagline br {
         display: none;
     }
