@@ -2,6 +2,7 @@
     /* Colors */
     --color-blue: #0071e3;
     --color-blue-hover: #005bbf;
+    --color-red: #d73a49;
     --color-text-primary: #333333;
     --color-text-secondary: #353535;
     --color-text-muted: #5a5a5a;
@@ -884,7 +885,7 @@ code {
     border-radius: 4px;
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
     font-size: 0.9em;
-    color: var(--color-blue);
+    color: var(--color-red);
     border: 1px solid var(--color-border-medium);
 }
 
