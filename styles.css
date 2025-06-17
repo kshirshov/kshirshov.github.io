@@ -217,6 +217,8 @@ main {
     margin-top: 0;
     margin-bottom: 15px;
     color: var(--color-text-primary);
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-tight);
     display: flex;
     align-items: center;
     gap: 15px;
@@ -224,22 +226,22 @@ main {
 }
 
 .version-date {
-    font-size: 14px;
+    font-size: var(--font-size-small);
     font-weight: 400;
     color: var(--color-text-muted);
     background-color: var(--color-background-light);
     padding: 4px 12px;
-    border-radius: 12px;
+    border-radius: var(--border-radius-medium);
     border: 1px solid var(--color-border);
 }
 
 .version-status.upcoming {
-    font-size: 14px;
+    font-size: var(--font-size-small);
     font-weight: 500;
     color: var(--color-blue);
-    background-color: rgba(0, 113, 227, 0.1);
+    background-color: var(--color-background-info);
     padding: 4px 12px;
-    border-radius: 12px;
+    border-radius: var(--border-radius-medium);
     border: 1px solid var(--color-blue);
 }
 
@@ -247,6 +249,7 @@ main {
     margin-top: 0;
     margin-bottom: 20px;
     color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
     font-style: italic;
 }
 
@@ -261,7 +264,8 @@ main {
 .changelog-section h3 {
     margin-top: 0;
     margin-bottom: 10px;
-    font-size: 16px;
+    font-size: var(--font-size-h4);
+    line-height: var(--line-height-tight);
     color: var(--color-text-primary);
     font-weight: 600;
 }
@@ -273,7 +277,7 @@ main {
 
 .changelog-section li {
     margin-bottom: 8px;
-    line-height: 1.5;
+    line-height: var(--line-height-relaxed);
     color: var(--color-text-secondary);
 }
 
