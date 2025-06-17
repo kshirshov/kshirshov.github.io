@@ -115,8 +115,8 @@ main {
     margin-top: 0;
     margin-bottom: 20px;
     color: var(--color-text-primary);
-    font-size: 32px;
-    line-height: 1.2;
+    font-size: var(--font-size-h1);
+    line-height: var(--line-height-tight);
 }
 
 .page-container h2 {
@@ -126,7 +126,7 @@ main {
 }
 
 .page-container p {
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
     margin-bottom: 15px;
     color: var(--color-text-secondary);
 }
@@ -148,17 +148,17 @@ main {
     margin-top: 0;
     margin-bottom: 45px; 
     text-align: center;
-    font-size: 18px;
+    font-size: var(--font-size-h4);
     max-width: 650px;
     margin-left: auto;
     margin-right: auto;
-    line-height: 1.5;
+    line-height: var(--line-height-normal);
 }
 
 .homepage-content .cta-button {
     margin-top: 0;
     padding: 15px 30px;
-    font-size: 18px;
+    font-size: var(--font-size-h4);
     background-color: var(--color-blue);
     color: var(--color-background-white);
     border: none;
@@ -196,13 +196,14 @@ main {
 .faq-item h2 {
     margin-top: 0;
     margin-bottom: 10px;
-    font-size: 18px;
+    font-size: var(--font-size-h4);
+    line-height: var(--line-height-tight);
     color: var(--color-text-primary);
 }
 
 .faq-item p {
     margin-bottom: 0;
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
     color: var(--color-text-secondary);
 }
 
@@ -341,7 +342,7 @@ main {
     text-decoration: none;
     color: var(--color-text-secondary); 
     font-weight: 400; 
-    font-size: 15px;
+    font-size: var(--font-size-small);
     padding: 10px 18px; 
     border-radius: var(--border-radius-pill); 
     transition: background-color var(--transition-default), color var(--transition-default), border-color var(--transition-default);
@@ -369,7 +370,7 @@ main {
     border-radius: var(--border-radius-pill); 
     cursor: pointer;
     text-decoration: none;
-    font-size: 15px;
+    font-size: var(--font-size-small);
     font-weight: 400; 
     transition: color var(--transition-default), border-color var(--transition-default);
 }
@@ -398,7 +399,7 @@ main {
     background-color: transparent; 
     color: var(--color-text-secondary);
     padding: 60px 20px 40px;
-    font-size: 14px;
+    font-size: var(--font-size-small);
     border-top: 1px solid var(--color-border); 
 }
 
@@ -412,7 +413,7 @@ main {
 }
 
 .footer-col-brand-legal .footer-title-main {
-    font-size: 18px;
+    font-size: var(--font-size-h4);
     font-weight: 600;
     color: var(--color-text-primary);
     margin-bottom: 10px;
@@ -420,14 +421,14 @@ main {
 }
 
 .footer-col-brand-legal .footer-tagline {
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-relaxed);
     margin-bottom: 15px;
     color: var(--color-text-secondary);
 }
 
 .footer-col-brand-legal .footer-copyright {
-    font-size: 13px;
+    font-size: var(--font-size-tiny);
     color: var(--color-text-muted);
     margin-bottom: 15px; 
 }
@@ -435,7 +436,7 @@ main {
 .footer-legal-links-inline a {
     text-decoration: none;
     color: var(--color-text-secondary);
-    font-size: 13px;
+    font-size: var(--font-size-tiny);
 }
 
 .footer-legal-links-inline a:hover {
@@ -567,7 +568,7 @@ main {
 
     .header-cta-new {
         padding: 8px 15px; 
-        font-size: 14px;
+        font-size: var(--font-size-small);
         margin-left: auto; 
     }
 }
