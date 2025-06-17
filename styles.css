@@ -1081,8 +1081,8 @@ code {
 .comparison-hero-image img {
     max-width: 100%;
     height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-medium);
     margin: 0 auto;
     display: block;
 }
@@ -1094,7 +1094,7 @@ code {
     align-items: center;
     justify-content: center;
     background-color: var(--color-background-hover);
-    border-radius: 12px;
+    border-radius: var(--border-radius-medium);
     padding: 30px 20px;
     text-align: center;
     max-width: 270px;
@@ -1111,7 +1111,7 @@ code {
     color: var(--color-blue);
     text-decoration: none;
     font-weight: 500;
-    font-size: 16px;
+    font-size: var(--font-size-base);
     transition: var(--transition-default);
 }
 
@@ -1130,16 +1130,16 @@ code {
 /* Removed - now using unified .page-container h1 styles */
 
 .feedback-subtitle {
-    font-size: 20px;
-    line-height: 1.5;
+    font-size: var(--font-size-h4);
+    line-height: var(--line-height-normal);
     margin-bottom: 20px;
     color: var(--color-text-primary);
     font-weight: 500;
 }
 
 .feedback-description {
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
     color: var(--color-text-secondary);
     margin-bottom: 0;
 }
@@ -1154,7 +1154,7 @@ code {
     max-width: 270px;
     width: 100%;
     height: auto;
-    border-radius: 12px;
+    border-radius: var(--border-radius-medium);
 }
 
 
@@ -1170,16 +1170,16 @@ code {
     max-width: 100%;
     min-height: 80px;
     border: 1px solid var(--color-border-light);
-    border-radius: 4px;
+    border-radius: var(--border-radius-small);
     padding: 8px;
     resize: vertical;
     font-family: var(--font-family-system);
-    font-size: 16px;
-    line-height: 1.4;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
     color: var(--color-text-primary);
     margin-bottom: 12px;
     outline: none;
-    background: white;
+    background: var(--color-background-white);
     transition: border-color var(--transition-default);
 }
 
@@ -1193,16 +1193,16 @@ code {
     max-width: 100%;
     min-height: 80px;
     border: 1px solid var(--color-border-light);
-    border-radius: 4px;
+    border-radius: var(--border-radius-small);
     padding: 8px;
     resize: vertical;
     font-family: var(--font-family-system);
-    font-size: 16px;
-    line-height: 1.4;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
     color: var(--color-text-primary);
     margin-bottom: 12px;
     outline: none;
-    background: white;
+    background: var(--color-background-white);
     transition: border-color var(--transition-default);
     overflow-y: auto;
     overflow-x: hidden;
@@ -1222,9 +1222,9 @@ code {
     background: var(--color-black);
     color: var(--color-white);
     border: none;
-    border-radius: 24px;
+    border-radius: var(--border-radius-pill);
     padding: 8px 20px;
-    font-size: 17px;
+    font-size: var(--font-size-base);
     font-weight: 600;
     cursor: pointer;
     transition: background-color var(--transition-default);
@@ -1267,8 +1267,8 @@ code {
     }
     
     .comparison-hero-image img {
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-radius: var(--border-radius-small);
+        box-shadow: var(--shadow-light);
     }
     
     .feedback-hero {
