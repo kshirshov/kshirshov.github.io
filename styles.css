@@ -398,7 +398,8 @@ main {
 .header-cta-new:hover {
     background-color: transparent; 
     color: var(--color-blue-hover); 
-    border-color: var(--color-blue); 
+    border-color: var(--color-blue);
+    text-decoration: none;
 }
 
 .nav-toggle {
