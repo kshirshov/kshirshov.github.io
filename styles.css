@@ -74,6 +74,17 @@ body {
     line-height: var(--line-height-relaxed);
 }
 
+/* Fix for mobile viewport height issues */
+@media (max-width: 768px) {
+    body {
+        min-height: 100vh; /* Use standard viewport height */
+    }
+    
+    html {
+        /* Remove fixed height that can block scrolling */
+    }
+}
+
 /* Global link styles */
 a {
     color: var(--color-blue);
@@ -421,7 +432,8 @@ main {
     color: var(--color-text-secondary);
     padding: 60px 20px 40px;
     font-size: var(--font-size-small);
-    border-top: 1px solid var(--color-border); 
+    border-top: 1px solid var(--color-border);
+    overflow-x: hidden;
 }
 
 .footer-container-grid-v2 { 
@@ -494,9 +506,15 @@ main {
 
 
 @media (max-width: 768px) {
+    .site-footer-new {
+        padding: 40px 15px 40px; /* Standard padding for mobile */
+    }
+    
     .footer-container-grid-v2 {
         grid-template-columns: 1fr; 
         text-align: center;
+        overflow-x: hidden;
+        word-wrap: break-word;
     }
 
     .footer-col-brand-legal {
@@ -1231,11 +1249,14 @@ code {
     .page-container,
     .homepage-content {
         padding: 15px;
+        overflow-x: hidden;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
     
     
     .page-container h1 {
-        font-size: 28px;
+        font-size: var(--font-size-h1);
         margin-bottom: 15px;
         word-wrap: break-word;
     }
