@@ -1010,7 +1010,7 @@ code {
 .comparison-links h2 {
     margin-bottom: 30px;
     color: var(--color-text-primary);
-    font-size: 22px;
+    font-size: var(--font-size-h3);
 }
 
 .comparison-item {
@@ -1027,7 +1027,7 @@ code {
 .comparison-item h3 {
     margin-top: 0;
     margin-bottom: 12px;
-    font-size: 18px;
+    font-size: var(--font-size-h4);
 }
 
 .comparison-item h3 a {
@@ -1045,7 +1045,7 @@ code {
 .comparison-item p {
     margin-bottom: 0;
     color: var(--color-text-secondary);
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
 }
 
 /* Mobile responsiveness for comparison page */
@@ -1376,7 +1376,7 @@ code {
 .breadcrumb-item {
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: var(--font-size-small);
     color: var(--color-text-secondary);
 }
 
@@ -1430,7 +1430,7 @@ code {
 
 .table-of-contents {
     padding: 17px;
-    border-radius: 12px;
+    border-radius: var(--border-radius-medium);
     border: 1px solid var(--color-border);
     margin-bottom: 0;
     height: fit-content;
@@ -1440,7 +1440,7 @@ code {
 .table-of-contents h2 {
     margin-top: 0;
     margin-bottom: 20px;
-    font-size: 18px;
+    font-size: var(--font-size-h4);
     color: var(--color-text-primary);
 }
 
@@ -1465,7 +1465,7 @@ code {
 
 .table-of-contents ul ul li {
     margin-bottom: 6px;
-    font-size: 13px;
+    font-size: var(--font-size-tiny);
 }
 
 .table-of-contents a {
@@ -1473,7 +1473,7 @@ code {
     text-decoration: none;
     transition: color var(--transition-default);
     display: inline-block;
-    line-height: 1.4;
+    line-height: var(--line-height-normal);
 }
 
 .table-of-contents a:hover {
@@ -1483,11 +1483,11 @@ code {
 .table-of-contents > ul > li > a {
     color: var(--color-text-primary);
     font-weight: 500;
-    font-size: 15px;
+    font-size: var(--font-size-base);
 }
 
 .table-of-contents ul ul li a {
-    font-size: 13px;
+    font-size: var(--font-size-tiny);
 }
 
 @media (max-width: 768px) {
