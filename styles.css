@@ -74,6 +74,26 @@ body {
     line-height: var(--line-height-relaxed);
 }
 
+/* Global link styles */
+a {
+    color: var(--color-blue);
+    text-decoration: none;
+    transition: color var(--transition-default);
+}
+
+a:visited {
+    color: var(--color-blue);
+}
+
+a:hover {
+    color: var(--color-blue-hover);
+    text-decoration: underline;
+}
+
+a:active {
+    color: var(--color-blue-hover);
+}
+
 main {
     flex: 1;
     width: 100%;
