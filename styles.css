@@ -11,6 +11,7 @@
     --color-background-white: #ffffff;
     --color-background-light: #f8f9fa;
     --color-background-medium: #e9ecef;
+    --color-background-info: #f1f8ff;
     --color-background-transparent: rgba(255, 255, 255, 0.80);
     --color-background-transparent-mobile: rgba(255, 255, 255, 0.95);
     --color-background-hover: rgba(0, 0, 0, 0.05);
@@ -123,15 +124,6 @@ main {
     color: var(--color-text-secondary);
 }
 
-/* Legacy support - keeping for any missed references */
-.content-main {
-    max-width: 920px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: left;
-}
-
 .homepage-content h1 {
     margin-top: 10px; 
     margin-bottom: 15px; 
@@ -178,23 +170,7 @@ main {
     height: 132px; 
 }
 
-.content-main h1 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    color: var(--color-text-primary);
-}
 
-.content-main h2 {
-    margin-top: 30px;
-    margin-bottom: 15px;
-    color: var(--color-text-primary);
-}
-
-.content-main p {
-    line-height: 1.6;
-    margin-bottom: 15px;
-    color: var(--color-text-secondary);
-}
 
 .faq-container {
     margin-top: 30px;
@@ -721,7 +697,7 @@ main {
 }
 
 .how-it-works {
-    background-color: #f1f8ff;
+    background-color: var(--color-background-info);
     padding: 20px;
     border-radius: 8px;
     margin-top: 20px;
@@ -1216,7 +1192,6 @@ code {
 
 @media (max-width: 768px) {
     .page-container,
-    .content-main,
     .homepage-content {
         padding: 15px;
     }
