@@ -40,6 +40,7 @@
     /* Layout */
     --border-radius-pill: 30px;
     --border-radius-button: 25px;
+    --border-radius-medium: 12px;
     --transition-default: 0.2s ease-in-out;
     --transition-background: 0.3s ease;
     --shadow-light: 0 1px 3px rgba(0,0,0,0.05);
@@ -617,14 +618,14 @@ main {
 .guide-intro {
     background-color: var(--color-background-light);
     padding: 30px;
-    border-radius: 12px;
+    border-radius: var(--border-radius-medium);
     margin-bottom: 40px;
     border: 1px solid var(--color-border);
 }
 
 .guide-intro p {
-    font-size: 18px;
-    line-height: 1.6;
+    font-size: var(--font-size-h4);
+    line-height: var(--line-height-relaxed);
     margin-bottom: 25px;
     color: var(--color-text-primary);
 }
@@ -636,7 +637,8 @@ main {
 .key-benefits h2 {
     margin-top: 0;
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: var(--font-size-h3);
+    line-height: var(--line-height-tight);
     color: var(--color-text-primary);
 }
 
@@ -649,7 +651,7 @@ main {
 .key-benefits li {
     margin-bottom: 12px;
     padding-left: 0;
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
     color: var(--color-text-secondary);
 }
 
@@ -666,7 +668,8 @@ main {
 .guide-section h2 {
     margin-top: 0;
     margin-bottom: 25px;
-    font-size: 24px;
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-tight);
     color: var(--color-text-primary);
     scroll-margin-top: 100px;
 }
@@ -674,7 +677,8 @@ main {
 .guide-section h3 {
     margin-top: 30px;
     margin-bottom: 15px;
-    font-size: 20px;
+    font-size: var(--font-size-h3);
+    line-height: var(--line-height-tight);
     color: var(--color-text-primary);
     scroll-margin-top: 100px;
 }
@@ -682,13 +686,14 @@ main {
 .guide-section h4 {
     margin-top: 25px;
     margin-bottom: 12px;
-    font-size: 16px;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-tight);
     color: var(--color-text-primary);
     font-weight: 600;
 }
 
 .guide-section p {
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
     margin-bottom: 15px;
     color: var(--color-text-secondary);
 }
@@ -700,15 +705,15 @@ main {
 }
 
 .guide-section li {
-    margin-bottom: 8px;
-    line-height: 1.6;
+    margin-bottom: 10px;
+    line-height: var(--line-height-relaxed);
     color: var(--color-text-secondary);
 }
 
 .how-it-works {
     background-color: var(--color-background-info);
     padding: 20px;
-    border-radius: 8px;
+    border-radius: var(--border-radius-medium);
     margin-top: 20px;
     border-left: 4px solid var(--color-blue);
 }
@@ -726,7 +731,7 @@ main {
 .code-example {
     background-color: var(--color-background-light);
     border: 1px solid var(--color-border-medium);
-    border-radius: 8px;
+    border-radius: var(--border-radius-medium);
     padding: 20px;
     margin: 20px 0;
     overflow-x: auto;
@@ -735,8 +740,8 @@ main {
 .code-example pre {
     margin: 0;
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-normal);
     color: var(--color-text-code);
 }
 
@@ -758,7 +763,7 @@ main {
     border-collapse: collapse;
     background-color: var(--color-background-white);
     border: 1px solid var(--color-border);
-    border-radius: 8px;
+    border-radius: var(--border-radius-medium);
     overflow: hidden;
 }
 
@@ -773,12 +778,12 @@ main {
     background-color: var(--color-background-light);
     font-weight: 600;
     color: var(--color-text-primary);
-    font-size: 14px;
+    font-size: var(--font-size-small);
 }
 
 .shortcuts-table td {
     color: var(--color-text-secondary);
-    font-size: 14px;
+    font-size: var(--font-size-small);
 }
 
 .shortcuts-table tr:last-child td {
@@ -792,7 +797,7 @@ main {
 .guide-conclusion {
     background: linear-gradient(135deg, var(--color-background-light) 0%, var(--color-background-medium) 100%);
     padding: 40px;
-    border-radius: 12px;
+    border-radius: var(--border-radius-medium);
     margin-bottom: 40px;
     text-align: center;
     border: 1px solid var(--color-border);
@@ -805,8 +810,8 @@ main {
 }
 
 .guide-conclusion p {
-    font-size: 18px;
-    line-height: 1.6;
+    font-size: var(--font-size-h4);
+    line-height: var(--line-height-relaxed);
     margin-bottom: 25px;
     color: var(--color-text-primary);
 }
@@ -828,11 +833,11 @@ main {
 .conclusion-benefits li {
     background-color: var(--color-background-white);
     padding: 15px 20px;
-    border-radius: 8px;
+    border-radius: var(--border-radius-medium);
     border: 1px solid var(--color-border);
     margin-bottom: 0;
     color: var(--color-text-secondary);
-    font-size: 16px;
+    font-size: var(--font-size-base);
 }
 
 .cta-section {
