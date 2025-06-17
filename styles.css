@@ -897,7 +897,7 @@ code {
     }
     
     .guide-intro p {
-        font-size: 16px;
+        font-size: var(--font-size-base);
     }
     
     .guide-section {
@@ -906,12 +906,12 @@ code {
     }
     
     .guide-section h2 {
-        font-size: 22px;
+        font-size: var(--font-size-h2);
         margin-bottom: 20px;
     }
     
     .guide-section h3 {
-        font-size: 18px;
+        font-size: var(--font-size-h4);
         margin-top: 25px;
     }
     
@@ -921,11 +921,11 @@ code {
     }
     
     .code-example pre {
-        font-size: 13px;
+        font-size: var(--font-size-tiny);
     }
     
     .shortcuts-table {
-        font-size: 13px;
+        font-size: var(--font-size-tiny);
     }
     
     .shortcuts-table th,
@@ -939,7 +939,7 @@ code {
     }
     
     .guide-conclusion p {
-        font-size: 16px;
+        font-size: var(--font-size-base);
     }
     
     .conclusion-benefits ul {
@@ -949,12 +949,12 @@ code {
     
     .conclusion-benefits li {
         padding: 12px 15px;
-        font-size: 15px;
+        font-size: var(--font-size-small);
     }
     
     .cta-section .cta-button {
         padding: 12px 25px;
-        font-size: 16px;
+        font-size: var(--font-size-base);
     }
     
     .how-it-works {
@@ -1011,7 +1011,7 @@ code {
 /* Mobile responsiveness for comparison page */
 @media (max-width: 768px) {
     .comparison-links h2 {
-        font-size: 20px;
+        font-size: var(--font-size-h3);
         margin-bottom: 25px;
     }
     
@@ -1021,7 +1021,7 @@ code {
     }
     
     .comparison-item h3 {
-        font-size: 17px;
+        font-size: var(--font-size-base);
         margin-bottom: 10px;
     }
 }
@@ -1245,7 +1245,7 @@ code {
     }
     
     .webstore-link {
-        font-size: 15px;
+        font-size: var(--font-size-small);
     }
     
     .feedback-content {
@@ -1267,12 +1267,12 @@ code {
     
     
     .feedback-subtitle {
-        font-size: 18px;
+        font-size: var(--font-size-h4);
         margin-bottom: 15px;
     }
     
     .feedback-description {
-        font-size: 15px;
+        font-size: var(--font-size-small);
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
@@ -1288,14 +1288,14 @@ code {
     }
     
     .tweet-textarea {
-        font-size: 15px;
+        font-size: var(--font-size-small);
         min-height: 70px;
         padding: 6px;
         text-align: left;
     }
     
     .highlight-div {
-        font-size: 15px;
+        font-size: var(--font-size-small);
         min-height: 70px;
         padding: 6px;
         text-align: left;
@@ -1308,7 +1308,7 @@ code {
     }
     
     .custom-twitter-button {
-        font-size: 15px;
+        font-size: var(--font-size-small);
         padding: 6px 18px;
         max-width: 100%;
         word-wrap: break-word;
@@ -1366,7 +1366,7 @@ code {
     }
     
     .breadcrumb-item {
-        font-size: 13px;
+        font-size: var(--font-size-tiny);
     }
     
     .breadcrumb-item:not(:last-child)::after {
@@ -1459,17 +1459,17 @@ code {
     }
     
     .table-of-contents h2 {
-        font-size: 16px;
+        font-size: var(--font-size-base);
         margin-bottom: 15px;
     }
     
     .table-of-contents > ul > li > a {
-        font-size: 14px;
+        font-size: var(--font-size-small);
     }
     
     .table-of-contents ul ul li,
     .table-of-contents ul ul li a {
-        font-size: 12px;
+        font-size: var(--font-size-tiny);
     }
 }
 
