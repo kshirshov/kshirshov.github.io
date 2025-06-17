@@ -892,7 +892,7 @@ main {
     color: var(--color-background-white);
     text-decoration: none;
     border-radius: var(--border-radius-button);
-    font-size: 18px;
+    font-size: var(--font-size-h4);
     font-weight: 500;
     transition: background-color var(--transition-background);
 }
@@ -911,7 +911,7 @@ main {
 .guide-footer p {
     margin-bottom: 10px;
     color: var(--color-text-muted);
-    font-size: 14px;
+    font-size: var(--font-size-small);
 }
 
 .guide-footer p:last-child {
@@ -1007,6 +1007,33 @@ code {
     margin-top: 40px;
 }
 
+/* Comparison detail pages */
+.comparison-table {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.comparison-table th[scope="row"] {
+    font-weight: 500;
+    text-align: left;
+    background-color: var(--color-background-light);
+}
+
+.feature-yes {
+    color: var(--color-text-primary);
+    font-weight: 500;
+}
+
+.feature-no {
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+.feature-partial {
+    color: var(--color-text-secondary);
+    font-weight: 400;
+}
+
 .comparison-links h2 {
     margin-bottom: 30px;
     color: var(--color-text-primary);
@@ -1064,6 +1091,25 @@ code {
         font-size: var(--font-size-base);
         margin-bottom: 10px;
     }
+    
+    /* Comparison table mobile styles */
+    .comparison-table {
+        font-size: var(--font-size-small);
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 8px 6px;
+    }
+    
+    .comparison-table th[scope="row"] {
+        font-size: var(--font-size-tiny);
+    }
+    
+    /* Mobile spacing for comparison pages */
+    .guide-intro + .guide-section h2:first-child {
+        margin-top: 40px;
+    }
 }
 
 /* Feedback Page Styles */
@@ -1076,6 +1122,33 @@ code {
 .comparison-hero-image {
     text-align: center;
     margin: 40px 0;
+}
+
+.comparison-hero-image + .guide-intro {
+    margin-top: 30px;
+}
+
+/* Center title on comparison detail pages */
+.page-container > h1:first-child + .comparison-hero-image {
+    margin-top: 20px;
+}
+
+/* Proper spacing after guide-intro on comparison pages */
+.guide-intro + .guide-section h2:first-child {
+    margin-top: 50px;
+}
+
+/* Center h1 only on comparison detail pages with hero image */
+.comparison-hero-image ~ * h1 {
+    text-align: left;
+}
+
+.page-container h1 + .comparison-hero-image {
+    margin-top: 20px;
+}
+
+.page-container h1 + .comparison-hero-image ~ * h1 {
+    text-align: left;
 }
 
 .comparison-hero-image img {
