@@ -210,6 +210,20 @@
             }
         }
 
+        // Function to track social share clicks
+        function trackSocialShareClick() {
+            const pageType = getPageType();
+            
+            // Send event to Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'click', {
+                    'content_type': 'social_share',
+                    'click_location': 'content',
+                    'page_type': pageType
+                });
+            }
+        }
+
         // Initialize tracking when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
             // Track all Chrome Web Store links
@@ -229,6 +243,14 @@
                     trackWebStoreClick(this, event);
                 });
             });
+
+            // Track Twitter/social share button
+            const twitterButton = document.querySelector('.custom-twitter-button');
+            if (twitterButton) {
+                twitterButton.addEventListener('click', function(event) {
+                    trackSocialShareClick();
+                });
+            }
         });
     </script>
     <script src="feedback.js"></script>
