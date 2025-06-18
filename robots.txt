@@ -5,4 +5,14 @@ Disallow: /terms/
 Disallow: /extension/
 Disallow: /feedback/
 
+# Allow specific bots to crawl all content
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Crawl delay for general bots
+Crawl-delay: 1
+
 Sitemap: https://quicknotetab.com/sitemap.xml

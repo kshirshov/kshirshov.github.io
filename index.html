@@ -22,10 +22,14 @@
     <meta name="twitter:description" content="Install now and transform your new tab background into a private notepad!">
     <meta name="twitter:image" content="https://quicknotetab.com/assets/qntb-og-image.png">
     <title>Quick Note Tab • Minimal new-tab notepad for Chrome</title>
+    <link rel="canonical" href="https://quicknotetab.com/">
     <link rel="icon" href="assets/favicon.ico" sizes="any">
     <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/fav-for-apple.png">
     <link rel="stylesheet" href="styles.css">
+    <link type="text/plain" rel="author" href="humans.txt" />
+    <meta name="google-site-verification" content="" />
+    <meta name="msvalidate.01" content="" />
     <!-- Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GH02FYPQYB"></script>
     <script>
@@ -91,7 +95,22 @@
             "name": "Kos Shi",
             "sameAs": "https://twitter.com/k_shirshov"
         },
-        "inLanguage": "en-US"
+        "inLanguage": "en-US",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://quicknotetab.com/compare/?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        },
+        "mainEntity": {
+            "@type": "SoftwareApplication",
+            "name": "Quick Note Tab",
+            "applicationCategory": "BrowserApplication",
+            "operatingSystem": "Chrome",
+            "downloadUrl": "https://chromewebstore.google.com/detail/quick-note-tab/mpfdecfajdfcdbhjndaakpfggklckdbe"
+        }
     }
     </script>
 
