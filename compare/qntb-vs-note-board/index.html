@@ -427,6 +427,87 @@
             });
         }
     </script>
+    
+    <!-- Chrome Web Store Click Tracking -->
+    <script>
+        // Function to determine page type from URL
+        function getPageType() {
+            const path = window.location.pathname;
+            if (path === '/' || path === '/index.html') return 'home';
+            if (path.includes('/features/')) return 'features';
+            if (path.includes('/compare/')) return 'compare';
+            if (path.includes('/feedback/')) return 'feedback';
+            if (path.includes('/blog/')) return 'blog';
+            if (path.includes('/faq/')) return 'faq';
+            if (path.includes('/changelog/')) return 'changelog';
+            if (path.includes('/privacy/')) return 'privacy';
+            if (path.includes('/terms/')) return 'terms';
+            if (path.includes('/contact/')) return 'contact';
+            return 'other';
+        }
+
+        // Function to determine click location based on element context
+        function getClickLocation(element) {
+            // Check if it's the main hero CTA button
+            if (element.textContent.includes('Install Browser Extension')) {
+                return 'hero';
+            }
+            // Check if it's in header
+            if (element.closest('header') || element.classList.contains('header-cta-new')) {
+                return 'header';
+            }
+            // Check if it's in footer
+            if (element.closest('footer')) {
+                return 'footer';
+            }
+            // Check if it's the review link
+            if (element.href && element.href.includes('/reviews')) {
+                return 'content';
+            }
+            // Default to content for other cases
+            return 'content';
+        }
+
+        // Function to track Chrome Web Store clicks
+        function trackWebStoreClick(element, event) {
+            const pageType = getPageType();
+            const clickLocation = getClickLocation(element);
+            
+            // Determine content type based on URL
+            const isReviewLink = element.href && element.href.includes('/reviews');
+            const contentType = isReviewLink ? 'extension_review' : 'extension_install';
+            
+            // Send event to Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'click', {
+                    'content_type': contentType,
+                    'click_location': clickLocation,
+                    'page_type': pageType
+                });
+            }
+        }
+
+        // Initialize tracking when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Track all Chrome Web Store links
+            const webStoreLinks = document.querySelectorAll('a[href*="chromewebstore.google.com"], a[href*="chrome.google.com/webstore"]');
+            
+            webStoreLinks.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    trackWebStoreClick(this, event);
+                });
+            });
+
+            // Special handling for onclick buttons (like the main CTA)
+            const ctaButtons = document.querySelectorAll('button[onclick*="chrome.google.com/webstore"], button[onclick*="chromewebstore.google.com"]');
+            
+            ctaButtons.forEach(function(button) {
+                button.addEventListener('click', function(event) {
+                    trackWebStoreClick(this, event);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html> 
