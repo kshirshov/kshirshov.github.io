@@ -34,17 +34,51 @@ function checkUninstallParameter() {
 // Update Twitter link with custom text
 function updateTwitterLink(event) {
     event.preventDefault();
+    
+    // Get tweet text and analyze user engagement
     const highlightDiv = document.getElementById('highlightDiv');
     const textarea = document.getElementById('tweetText');
-    
-    // Get text from highlight div if it exists, otherwise from textarea
     const tweetText = highlightDiv ? highlightDiv.innerText : textarea.value;
+    
+    // Check if user customized the default text
+    const defaultText = 'I would like @QNTB_EXT to have...';
+    const hasCustomText = tweetText.trim() !== defaultText.trim();
+    
+    // Check if this is uninstall feedback context
+    const urlParams = new URLSearchParams(window.location.search);
+    const isUninstall = urlParams.has('uninstall');
+    
+    // Send feedback event to Google Analytics
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'feedback', {
+            'feedback_context': isUninstall ? 'ext_uninstall' : 'organic',
+            'text_customized': hasCustomText
+        }, {
+            'event_callback': function() {
+                // Event sent successfully - redirect to Twitter
+                redirectToTwitter(tweetText);
+            },
+            'event_timeout': 100 // 100ms timeout
+        });
+        
+        // Fallback redirect in case callback doesn't fire
+        setTimeout(() => redirectToTwitter(tweetText), 100);
+    } else {
+        // If GA is not available, redirect immediately
+        redirectToTwitter(tweetText);
+    }
+}
+
+// Helper function to redirect to Twitter
+function redirectToTwitter(tweetText) {
+    // Prevent double redirect
+    if (window.twitterRedirected) return;
+    window.twitterRedirected = true;
+    
     const encodedText = encodeURIComponent(tweetText);
     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodedText}`;
     window.open(twitterUrl, '_blank', 'noopener,noreferrer');
 }
-
-
 
 // Save cursor position
 function saveCursorPosition(element) {
