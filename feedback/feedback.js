@@ -74,12 +74,12 @@ function updateTwitterLink(event) {
                 'text_customized': hasCustomText
             });
             
-            console.log('⏰ Feedback: GA4 event sent via fallback (300ms delay)');
+            console.log('⏰ Feedback: GA4 event sent via fallback (500ms delay)');
             
             // Give GA4 time to send the event, then redirect
             setTimeout(() => {
                 redirectToTwitter(tweetText);
-            }, 300);
+            }, 500);
         }
     } else {
         console.log('❌ Feedback: gtag not available, redirecting immediately');
