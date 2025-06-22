@@ -35,9 +35,6 @@ function checkUninstallParameter() {
 function updateTwitterLink(event) {
     event.preventDefault();
     
-    // TEMP DEBUG: Function called
-    console.log('🔄 updateTwitterLink called');
-    
     // Get tweet text and analyze user engagement
     const highlightDiv = document.getElementById('highlightDiv');
     const textarea = document.getElementById('tweetText');
@@ -51,52 +48,24 @@ function updateTwitterLink(event) {
     const urlParams = new URLSearchParams(window.location.search);
     const isUninstall = urlParams.has('uninstall');
     
-    // TEMP DEBUG: Event parameters
-    console.log('📊 Event params:', {
-        feedback_context: isUninstall ? 'ext_uninstall' : 'organic',
-        text_customized: hasCustomText,
-        gtag_available: typeof gtag !== 'undefined'
-    });
-    
-    // TEMP DEBUG: Record start time for measuring callback performance
-    const startTime = performance.now();
-    
     // Send feedback event to Google Analytics
     if (typeof gtag !== 'undefined') {
-        // TEMP DEBUG: Check GA4 readiness
+        // Check if GA4 is fully ready for callback API
         const isGA4Ready = gtag.toString().includes('dataLayer.push') === false;
-        console.log('🔍 GA4 readiness check:', {
-            gtag_available: typeof gtag !== 'undefined',
-            dataLayer_exists: typeof dataLayer !== 'undefined',
-            dataLayer_length: dataLayer ? dataLayer.length : 0,
-            isGA4Ready: isGA4Ready,
-            gtag_toString: gtag.toString().substring(0, 50)
-        });
-        
-        console.log('📤 Sending GA4 event...', { startTime: startTime });
         
         // Use callback only if GA4 is fully ready
         if (isGA4Ready) {
-            console.log('✨ GA4 ready - using callback approach');
             gtag('event', 'feedback', {
                 'feedback_context': isUninstall ? 'ext_uninstall' : 'organic',
                 'text_customized': hasCustomText
             }, {
                 'event_callback': function() {
-                    // TEMP DEBUG: Callback fired
-                    console.log('✅ GA4 callback fired (success or timeout)');
-                    console.log('📋 GA4 callback details:', {
-                        timestamp: new Date().toISOString(),
-                        elapsedTime: Math.round(performance.now() - startTime) + 'ms'
-                    });
-                    // Redirect to Twitter
                     redirectToTwitter(tweetText);
                 },
-                'event_timeout': 350 // Increased timeout for better reliability
+                'event_timeout': 350
             });
         } else {
-            console.log('⏳ GA4 not ready - using fallback approach');
-            // Send event without callback and redirect with delay
+            // GA4 not ready - use fallback approach
             gtag('event', 'feedback', {
                 'feedback_context': isUninstall ? 'ext_uninstall' : 'organic',
                 'text_customized': hasCustomText
@@ -104,13 +73,10 @@ function updateTwitterLink(event) {
             
             // Give GA4 time to send the event, then redirect
             setTimeout(() => {
-                console.log('🕐 Fallback redirect after 300ms delay');
                 redirectToTwitter(tweetText);
             }, 300);
         }
     } else {
-        // TEMP DEBUG: GA not available
-        console.log('❌ GA4 not available - immediate redirect');
         // If GA is not available, redirect immediately
         redirectToTwitter(tweetText);
     }
@@ -118,17 +84,8 @@ function updateTwitterLink(event) {
 
 // Helper function to redirect to Twitter
 function redirectToTwitter(tweetText) {
-    // TEMP DEBUG: Redirect function called
-    console.log('🐦 redirectToTwitter called', { 
-        tweetLength: tweetText.length 
-    });
-    
     const encodedText = encodeURIComponent(tweetText);
     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodedText}`;
-    
-    // TEMP DEBUG: About to open Twitter
-    console.log('🚀 Opening Twitter URL:', twitterUrl.substring(0, 100) + '...');
-    
     window.open(twitterUrl, '_blank', 'noopener,noreferrer');
 }
 
