@@ -63,6 +63,14 @@ function updateTwitterLink(event) {
     
     // Send feedback event to Google Analytics
     if (typeof gtag !== 'undefined') {
+        // TEMP DEBUG: Check GA4 readiness
+        console.log('🔍 GA4 readiness check:', {
+            gtag_available: typeof gtag !== 'undefined',
+            dataLayer_exists: typeof dataLayer !== 'undefined',
+            dataLayer_length: dataLayer ? dataLayer.length : 0,
+            gtag_toString: gtag.toString().substring(0, 50)
+        });
+        
         console.log('📤 Sending GA4 event...', { startTime: startTime });
         
         gtag('event', 'feedback', {
