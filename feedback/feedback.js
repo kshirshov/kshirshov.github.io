@@ -54,6 +54,8 @@ function updateTwitterLink(event) {
         const isGA4Ready = gtag.toString().includes('dataLayer.push') === false;
         
         console.log('📊 Feedback: Sending GA4 event | Context:', isUninstall ? 'ext_uninstall' : 'organic', '| GA4 ready:', isGA4Ready);
+        console.log('🔍 Debug: gtag function =', gtag.toString().substring(0, 100) + '...');
+        console.log('🔍 Debug: dataLayer exists =', typeof window.dataLayer !== 'undefined', '| length =', window.dataLayer?.length || 0);
         
         // Use callback only if GA4 is fully ready
         if (isGA4Ready) {
