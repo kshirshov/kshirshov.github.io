@@ -63,7 +63,7 @@ function updateTwitterLink(event) {
                     redirectToTwitter(tweetText);
                 }
             },
-            'event_timeout': 500 // Increased timeout for better reliability
+            'event_timeout': 150 // Increased timeout for better reliability
         });
         
         // Fallback redirect in case callback doesn't fire
