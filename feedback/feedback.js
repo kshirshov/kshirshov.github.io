@@ -35,6 +35,9 @@ function checkUninstallParameter() {
 function updateTwitterLink(event) {
     event.preventDefault();
     
+    // TEMP DEBUG: Function called
+    console.log('🔄 updateTwitterLink called');
+    
     // Get tweet text and analyze user engagement
     const highlightDiv = document.getElementById('highlightDiv');
     const textarea = document.getElementById('tweetText');
@@ -48,15 +51,26 @@ function updateTwitterLink(event) {
     const urlParams = new URLSearchParams(window.location.search);
     const isUninstall = urlParams.has('uninstall');
     
+    // TEMP DEBUG: Event parameters
+    console.log('📊 Event params:', {
+        feedback_context: isUninstall ? 'ext_uninstall' : 'organic',
+        text_customized: hasCustomText,
+        gtag_available: typeof gtag !== 'undefined'
+    });
+    
     // Send feedback event to Google Analytics
     if (typeof gtag !== 'undefined') {
         let redirectExecuted = false;
+        
+        console.log('📤 Sending GA4 event...');
         
         gtag('event', 'feedback', {
             'feedback_context': isUninstall ? 'ext_uninstall' : 'organic',
             'text_customized': hasCustomText
         }, {
             'event_callback': function() {
+                // TEMP DEBUG: Callback fired
+                console.log('✅ GA4 callback fired successfully');
                 // Event sent successfully - redirect to Twitter
                 if (!redirectExecuted) {
                     redirectExecuted = true;
@@ -69,11 +83,15 @@ function updateTwitterLink(event) {
         // Fallback redirect in case callback doesn't fire
         setTimeout(() => {
             if (!redirectExecuted) {
+                // TEMP DEBUG: Timeout fallback
+                console.log('⏱️ GA4 timeout - using fallback redirect');
                 redirectExecuted = true;
                 redirectToTwitter(tweetText);
             }
         }, 500);
     } else {
+        // TEMP DEBUG: GA not available
+        console.log('❌ GA4 not available - immediate redirect');
         // If GA is not available, redirect immediately
         redirectToTwitter(tweetText);
     }
@@ -81,12 +99,22 @@ function updateTwitterLink(event) {
 
 // Helper function to redirect to Twitter
 function redirectToTwitter(tweetText) {
+    // TEMP DEBUG: Redirect function called
+    console.log('🐦 redirectToTwitter called', { 
+        alreadyRedirected: window.twitterRedirected,
+        tweetLength: tweetText.length 
+    });
+    
     // Prevent double redirect
     if (window.twitterRedirected) return;
     window.twitterRedirected = true;
     
     const encodedText = encodeURIComponent(tweetText);
     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodedText}`;
+    
+    // TEMP DEBUG: About to open Twitter
+    console.log('🚀 Opening Twitter URL:', twitterUrl.substring(0, 100) + '...');
+    
     window.open(twitterUrl, '_blank', 'noopener,noreferrer');
 }
 
