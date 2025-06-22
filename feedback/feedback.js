@@ -58,37 +58,34 @@ function updateTwitterLink(event) {
         gtag_available: typeof gtag !== 'undefined'
     });
     
+    // TEMP DEBUG: Record start time for measuring callback performance
+    const startTime = performance.now();
+    
     // Send feedback event to Google Analytics
     if (typeof gtag !== 'undefined') {
-        let redirectExecuted = false;
-        
-        console.log('📤 Sending GA4 event...');
+        console.log('📤 Sending GA4 event...', { startTime: startTime });
         
         gtag('event', 'feedback', {
             'feedback_context': isUninstall ? 'ext_uninstall' : 'organic',
             'text_customized': hasCustomText
         }, {
-            'event_callback': function() {
-                // TEMP DEBUG: Callback fired
-                console.log('✅ GA4 callback fired successfully');
-                // Event sent successfully - redirect to Twitter
-                if (!redirectExecuted) {
-                    redirectExecuted = true;
-                    redirectToTwitter(tweetText);
+            'event_callback': function(success) {
+                // TEMP DEBUG: Callback fired with details
+                if (success) {
+                    console.log('✅ GA4 event sent successfully (real success)');
+                } else {
+                    console.log('⏱️ GA4 callback fired due to timeout (350ms elapsed)');
                 }
-            },
-            'event_timeout': 150 // Increased timeout for better reliability
-        });
-        
-        // Fallback redirect in case callback doesn't fire
-        setTimeout(() => {
-            if (!redirectExecuted) {
-                // TEMP DEBUG: Timeout fallback
-                console.log('⏱️ GA4 timeout - using fallback redirect');
-                redirectExecuted = true;
+                console.log('📋 GA4 callback details:', {
+                    success: success,
+                    timestamp: new Date().toISOString(),
+                    elapsedTime: Math.round(performance.now() - startTime) + 'ms'
+                });
+                // Redirect to Twitter regardless of success/timeout
                 redirectToTwitter(tweetText);
-            }
-        }, 500);
+            },
+            'event_timeout': 350 // Increased timeout for better reliability
+        });
     } else {
         // TEMP DEBUG: GA not available
         console.log('❌ GA4 not available - immediate redirect');
@@ -101,13 +98,8 @@ function updateTwitterLink(event) {
 function redirectToTwitter(tweetText) {
     // TEMP DEBUG: Redirect function called
     console.log('🐦 redirectToTwitter called', { 
-        alreadyRedirected: window.twitterRedirected,
         tweetLength: tweetText.length 
     });
-    
-    // Prevent double redirect
-    if (window.twitterRedirected) return;
-    window.twitterRedirected = true;
     
     const encodedText = encodeURIComponent(tweetText);
     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodedText}`;
