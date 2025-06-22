@@ -53,6 +53,8 @@ function updateTwitterLink(event) {
         // Check if GA4 is fully ready for callback API
         const isGA4Ready = gtag.toString().includes('dataLayer.push') === false;
         
+        console.log('📊 Feedback: Sending GA4 event | Context:', isUninstall ? 'ext_uninstall' : 'organic', '| GA4 ready:', isGA4Ready);
+        
         // Use callback only if GA4 is fully ready
         if (isGA4Ready) {
             gtag('event', 'feedback', {
@@ -60,6 +62,7 @@ function updateTwitterLink(event) {
                 'text_customized': hasCustomText
             }, {
                 'event_callback': function() {
+                    console.log('✅ Feedback: GA4 event sent via callback');
                     redirectToTwitter(tweetText);
                 },
                 'event_timeout': 350
@@ -71,13 +74,15 @@ function updateTwitterLink(event) {
                 'text_customized': hasCustomText
             });
             
+            console.log('⏰ Feedback: GA4 event sent via fallback (300ms delay)');
+            
             // Give GA4 time to send the event, then redirect
             setTimeout(() => {
                 redirectToTwitter(tweetText);
             }, 300);
         }
     } else {
-        // If GA is not available, redirect immediately
+        console.log('❌ Feedback: gtag not available, redirecting immediately');
         redirectToTwitter(tweetText);
     }
 }
