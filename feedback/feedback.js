@@ -64,31 +64,50 @@ function updateTwitterLink(event) {
     // Send feedback event to Google Analytics
     if (typeof gtag !== 'undefined') {
         // TEMP DEBUG: Check GA4 readiness
+        const isGA4Ready = gtag.toString().includes('dataLayer.push') === false;
         console.log('🔍 GA4 readiness check:', {
             gtag_available: typeof gtag !== 'undefined',
             dataLayer_exists: typeof dataLayer !== 'undefined',
             dataLayer_length: dataLayer ? dataLayer.length : 0,
+            isGA4Ready: isGA4Ready,
             gtag_toString: gtag.toString().substring(0, 50)
         });
         
         console.log('📤 Sending GA4 event...', { startTime: startTime });
         
-        gtag('event', 'feedback', {
-            'feedback_context': isUninstall ? 'ext_uninstall' : 'organic',
-            'text_customized': hasCustomText
-        }, {
-            'event_callback': function() {
-                // TEMP DEBUG: Callback fired
-                console.log('✅ GA4 callback fired (success or timeout)');
-                console.log('📋 GA4 callback details:', {
-                    timestamp: new Date().toISOString(),
-                    elapsedTime: Math.round(performance.now() - startTime) + 'ms'
-                });
-                // Redirect to Twitter
+        // Use callback only if GA4 is fully ready
+        if (isGA4Ready) {
+            console.log('✨ GA4 ready - using callback approach');
+            gtag('event', 'feedback', {
+                'feedback_context': isUninstall ? 'ext_uninstall' : 'organic',
+                'text_customized': hasCustomText
+            }, {
+                'event_callback': function() {
+                    // TEMP DEBUG: Callback fired
+                    console.log('✅ GA4 callback fired (success or timeout)');
+                    console.log('📋 GA4 callback details:', {
+                        timestamp: new Date().toISOString(),
+                        elapsedTime: Math.round(performance.now() - startTime) + 'ms'
+                    });
+                    // Redirect to Twitter
+                    redirectToTwitter(tweetText);
+                },
+                'event_timeout': 350 // Increased timeout for better reliability
+            });
+        } else {
+            console.log('⏳ GA4 not ready - using fallback approach');
+            // Send event without callback and redirect with delay
+            gtag('event', 'feedback', {
+                'feedback_context': isUninstall ? 'ext_uninstall' : 'organic',
+                'text_customized': hasCustomText
+            });
+            
+            // Give GA4 time to send the event, then redirect
+            setTimeout(() => {
+                console.log('🕐 Fallback redirect after 300ms delay');
                 redirectToTwitter(tweetText);
-            },
-            'event_timeout': 350 // Increased timeout for better reliability
-        });
+            }, 300);
+        }
     } else {
         // TEMP DEBUG: GA not available
         console.log('❌ GA4 not available - immediate redirect');
