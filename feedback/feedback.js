@@ -50,19 +50,29 @@ function updateTwitterLink(event) {
     
     // Send feedback event to Google Analytics
     if (typeof gtag !== 'undefined') {
+        let redirectExecuted = false;
+        
         gtag('event', 'feedback', {
             'feedback_context': isUninstall ? 'ext_uninstall' : 'organic',
             'text_customized': hasCustomText
         }, {
             'event_callback': function() {
                 // Event sent successfully - redirect to Twitter
-                redirectToTwitter(tweetText);
+                if (!redirectExecuted) {
+                    redirectExecuted = true;
+                    redirectToTwitter(tweetText);
+                }
             },
-            'event_timeout': 100 // 100ms timeout
+            'event_timeout': 500 // Increased timeout for better reliability
         });
         
         // Fallback redirect in case callback doesn't fire
-        setTimeout(() => redirectToTwitter(tweetText), 100);
+        setTimeout(() => {
+            if (!redirectExecuted) {
+                redirectExecuted = true;
+                redirectToTwitter(tweetText);
+            }
+        }, 500);
     } else {
         // If GA is not available, redirect immediately
         redirectToTwitter(tweetText);

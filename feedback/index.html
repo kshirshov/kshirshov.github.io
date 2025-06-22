@@ -210,63 +210,6 @@
             }
         }
 
-        // Function to track social share clicks
-        function trackSocialShareClick() {
-            const pageType = getPageType();
-            
-            // Check if this is feedback page and get additional data
-            let contentType = 'social_share';
-            let additionalParams = {};
-            
-            if (pageType === 'feedback') {
-                contentType = 'twitter_feedback';
-                
-                // Check if it's uninstall feedback
-                const urlParams = new URLSearchParams(window.location.search);
-                const isUninstall = urlParams.has('uninstall');
-                
-                // Get tweet text for engagement analysis
-                const highlightDiv = document.getElementById('highlightDiv');
-                const textarea = document.getElementById('tweetText');
-                const tweetText = highlightDiv ? highlightDiv.innerText : textarea.value;
-                
-                // Analyze user engagement
-                const defaultText = 'I would like @QNTB_EXT to have...';
-                const hasCustomText = tweetText.trim() !== defaultText.trim();
-                const tweetLength = tweetText.length;
-                const hasMentions = (tweetText.match(/@/g) || []).length > 1; // More than just @QNTB_EXT
-                const hasHashtags = (tweetText.match(/#/g) || []).length > 0;
-                
-                // Determine engagement level
-                let engagementLevel = 'low';
-                if (hasCustomText && tweetLength > defaultText.length + 20) {
-                    engagementLevel = 'high';
-                } else if (hasCustomText || hasMentions || hasHashtags) {
-                    engagementLevel = 'medium';
-                }
-                
-                additionalParams = {
-                    'feedback_type': isUninstall ? 'uninstall_feedback' : 'organic_feedback',
-                    'engagement_level': engagementLevel,
-                    'has_custom_text': hasCustomText,
-                    'tweet_length': tweetLength,
-                    'has_additional_mentions': hasMentions,
-                    'has_hashtags': hasHashtags,
-                    'custom_text_length': hasCustomText ? tweetLength - defaultText.length : 0
-                };
-            }
-            
-            // Send event to Google Analytics
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'click', {
-                    'content_type': contentType,
-                    'click_location': 'content',
-                    'page_type': pageType,
-                    ...additionalParams
-                });
-            }
-        }
-
         // Initialize tracking when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
             // Track all Chrome Web Store links
@@ -286,9 +229,6 @@
                     trackWebStoreClick(this, event);
                 });
             });
-
-            // Note: Twitter button tracking is now handled by the feedback event in feedback.js
-            // Removed duplicate click tracking to avoid double events
         });
     </script>
     <script src="feedback.js"></script>
