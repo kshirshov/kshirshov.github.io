@@ -69,19 +69,14 @@ function updateTwitterLink(event) {
             'feedback_context': isUninstall ? 'ext_uninstall' : 'organic',
             'text_customized': hasCustomText
         }, {
-            'event_callback': function(success) {
-                // TEMP DEBUG: Callback fired with details
-                if (success) {
-                    console.log('✅ GA4 event sent successfully (real success)');
-                } else {
-                    console.log('⏱️ GA4 callback fired due to timeout (350ms elapsed)');
-                }
+            'event_callback': function() {
+                // TEMP DEBUG: Callback fired
+                console.log('✅ GA4 callback fired (success or timeout)');
                 console.log('📋 GA4 callback details:', {
-                    success: success,
                     timestamp: new Date().toISOString(),
                     elapsedTime: Math.round(performance.now() - startTime) + 'ms'
                 });
-                // Redirect to Twitter regardless of success/timeout
+                // Redirect to Twitter
                 redirectToTwitter(tweetText);
             },
             'event_timeout': 350 // Increased timeout for better reliability
