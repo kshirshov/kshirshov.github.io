@@ -96,6 +96,42 @@ function redirectToTwitter(tweetText) {
     window.open(twitterUrl, '_blank', 'noopener,noreferrer');
 }
 
+// Send feedback_view event to Google Analytics
+function sendFeedbackViewEvent() {
+    // Check if this is uninstall feedback context
+    const urlParams = new URLSearchParams(window.location.search);
+    const isUninstall = urlParams.has('uninstall');
+    
+    // Send feedback_view event to Google Analytics
+    if (typeof gtag !== 'undefined') {
+        // Check if GA4 is fully ready for callback API
+        const isGA4Ready = gtag.toString().includes('dataLayer.push') === false;
+        
+        console.log('📊 Feedback View: Sending GA4 event | Context:', isUninstall ? 'ext_uninstall' : 'organic', '| GA4 ready:', isGA4Ready);
+        
+        // Use callback only if GA4 is fully ready
+        if (isGA4Ready) {
+            gtag('event', 'feedback_view', {
+                'feedback_context': isUninstall ? 'ext_uninstall' : 'organic'
+            }, {
+                'event_callback': function() {
+                    console.log('✅ Feedback View: GA4 event sent via callback');
+                },
+                'event_timeout': 350
+            });
+        } else {
+            // GA4 not ready - use fallback approach
+            gtag('event', 'feedback_view', {
+                'feedback_context': isUninstall ? 'ext_uninstall' : 'organic'
+            });
+            
+            console.log('⏰ Feedback View: GA4 event sent via fallback');
+        }
+    } else {
+        console.log('❌ Feedback View: gtag not available');
+    }
+}
+
 // Save cursor position
 function saveCursorPosition(element) {
     const selection = window.getSelection();
@@ -184,6 +220,9 @@ function applyHighlighting() {
 
 // Initialize textarea
 document.addEventListener('DOMContentLoaded', function() {
+    // Send feedback_view event on page load
+    sendFeedbackViewEvent();
+    
     // Check URL parameters and update content
     checkUninstallParameter();
     
