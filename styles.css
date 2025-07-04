@@ -212,7 +212,7 @@ main {
 .browser-icon {
     display: none;
     flex-shrink: 0;
-    margin-right: 5px;
+    margin-right:6px;
 }
 
 .browser-icon svg {
