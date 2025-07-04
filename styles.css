@@ -222,7 +222,7 @@ main {
 
 
 
-.homepage-content svg {
+.homepage-content > svg {
     margin-bottom: 55px; 
     width: 132px; 
     height: 132px; 
