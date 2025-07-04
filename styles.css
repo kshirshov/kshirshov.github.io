@@ -187,36 +187,36 @@ main {
 }
 
 .homepage-content .cta-button {
-    margin-top: 0;
-    padding: 15px 30px;
-    font-size: var(--font-size-h4);
-    background-color: var(--color-blue);
-    color: var(--color-background-white);
     border: none;
+    background-color: var(--color-blue);
     border-radius: var(--border-radius-button);
     cursor: pointer;
+    padding: 0.8em 1.2em 0.8em 1em;
     transition: background-color var(--transition-background);
+    font-size: var(--font-size-h4);
+    font-family: inherit;
+    margin-top: 0;
 }
 
 .homepage-content .cta-button span {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: inherit;
-    font-weight: inherit;
+    color: var(--color-white);
 }
 
-.homepage-content .cta-button:hover { 
+.homepage-content .cta-button:hover {
     background-color: var(--color-blue-hover);
 }
 
 .browser-icon {
     display: none;
-    margin-right: 8px;
     flex-shrink: 0;
 }
 
 .browser-icon svg {
+    width: 24px;
+    height: 24px;
     display: block;
 }
 
