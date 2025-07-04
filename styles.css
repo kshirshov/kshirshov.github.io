@@ -40,7 +40,7 @@
     
     /* Layout */
     --border-radius-pill: 30px;
-    --border-radius-button: 25px;
+    --border-radius-button: 35px;
     --border-radius-medium: 12px;
     --transition-default: 0.2s ease-in-out;
     --transition-background: 0.3s ease;
@@ -212,6 +212,7 @@ main {
 .browser-icon {
     display: none;
     flex-shrink: 0;
+    margin-right: 5px;
 }
 
 .browser-icon svg {
