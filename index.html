@@ -332,14 +332,14 @@
                     .then(response => response.text())
                     .then(svgContent => {
                         iconElement.innerHTML = svgContent;
-                        iconElement.style.display = 'inline-block';
+                        iconElement.style.visibility = 'visible';
                     })
                     .catch(error => {
                         console.log('Browser icon not found:', error);
-                        iconElement.style.display = 'none';
+                        iconElement.style.visibility = 'hidden';
                     });
             } else {
-                iconElement.style.display = 'none';
+                iconElement.style.visibility = 'hidden';
             }
         }
 

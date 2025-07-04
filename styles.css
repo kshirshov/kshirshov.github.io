@@ -210,9 +210,11 @@ main {
 }
 
 .browser-icon {
-    display: none;
+    visibility: hidden;
     flex-shrink: 0;
-    margin-right:6px;
+    margin-right: 6px;
+    width: 29px;
+    height: 29px;
 }
 
 .browser-icon svg {
