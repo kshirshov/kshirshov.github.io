@@ -145,7 +145,10 @@
             <h1 class="camel-case-title">Instant notes every time you open a&nbsp;new tab</h1>
             <p class="description">Quick Note Tab is a free Chrome extension that gives you a blank page to write and keeps every note private on your
             device</p>
-            <button class="cta-button" onclick="window.open('https://chrome.google.com/webstore/detail/mpfdecfajdfcdbhjndaakpfggklckdbe', '_blank')">Install Browser Extension</button>
+            <button class="cta-button" onclick="window.open('https://chrome.google.com/webstore/detail/mpfdecfajdfcdbhjndaakpfggklckdbe', '_blank')">
+                <span class="browser-icon" id="browserIcon"></span>
+                Install Browser Extension
+            </button>
         </div>
     </main>
 
@@ -285,6 +288,61 @@
                 });
             });
         });
+    </script>
+    
+    <!-- Browser Detection and Icon Script -->
+    <script>
+        function detectBrowser() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            
+            // Check for specific browsers in order of specificity
+            if (userAgent.includes('edg/')) {
+                return 'edge';
+            } else if (userAgent.includes('opr/') || userAgent.includes('opera/')) {
+                return 'opera';
+            } else if (userAgent.includes('brave/')) {
+                return 'brave';
+            } else if (userAgent.includes('vivaldi/')) {
+                return 'vivaldi';
+            } else if (userAgent.includes('yabrowser/')) {
+                return 'yandex';
+            } else if (userAgent.includes('arc/')) {
+                return 'arc';
+            } else if (userAgent.includes('chrome/') && !userAgent.includes('edg/')) {
+                return 'chrome';
+            }
+            
+            // Return null for unknown browsers (no icon will be shown)
+            return null;
+        }
+
+        function setBrowserIcon() {
+            const browser = detectBrowser();
+            const iconElement = document.getElementById('browserIcon');
+            
+            if (browser && iconElement) {
+                const iconPath = `assets/browser-${browser === 'chrome' ? 'google-chrome' : 
+                                 browser === 'edge' ? 'microsoft-edge' : 
+                                 browser}-ico.svg`;
+                
+                // Create and insert SVG icon
+                fetch(iconPath)
+                    .then(response => response.text())
+                    .then(svgContent => {
+                        iconElement.innerHTML = svgContent;
+                        iconElement.style.display = 'inline-block';
+                    })
+                    .catch(error => {
+                        console.log('Browser icon not found:', error);
+                        iconElement.style.display = 'none';
+                    });
+            } else {
+                iconElement.style.display = 'none';
+            }
+        }
+
+        // Initialize browser icon when DOM is loaded
+        document.addEventListener('DOMContentLoaded', setBrowserIcon);
     </script>
 </body>
 
