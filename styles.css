@@ -212,7 +212,7 @@ main {
 .browser-icon {
     visibility: hidden;
     flex-shrink: 0;
-    margin-right: 6px;
+    margin-right: 8px;
     width: 29px;
     height: 29px;
 }
