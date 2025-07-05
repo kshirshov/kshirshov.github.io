@@ -319,8 +319,14 @@
         }
 
         function setBrowserIcon() {
-            const browser = detectBrowser();
+            let browser = detectBrowser();
             const iconElement = document.getElementById('browserIcon');
+            
+            // Fallback to Chrome for unknown browsers
+            if (!browser) {
+                browser = 'chrome';
+                console.log('Unknown browser, using Chrome fallback');
+            }
             
             if (browser && iconElement) {
                 const iconPath = `assets/browser-${browser === 'chrome' ? 'google-chrome' : 
